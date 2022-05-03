@@ -4,20 +4,21 @@
 <!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->
 <!-- BEGIN HEAD -->
 <head>
-   <meta charset="utf-8" />
-   <title>Blank</title>
-   <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-   <meta content="" name="description" />
-   <meta content="" name="author" />
-   <link href="{{asset('admin')}}/css/bootstrap.min.css" rel="stylesheet" />
-   <link href="{{asset('admin')}}/css/bootstrap-responsive.min.css" rel="stylesheet" />
-   <link href="{{asset('admin')}}/css/bootstrap-fileupload.css" rel="stylesheet" />
-   <link href="{{asset('admin')}}/css/font-awesome.css" rel="stylesheet" />
-   <link href="{{asset('admin')}}/css/style.css" rel="stylesheet" />
-   <link href="{{asset('admin')}}/css/style-responsive.css" rel="stylesheet" />
-   <link href="{{asset('admin')}}/css/style-default.css" rel="stylesheet" id="style_color" />
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/3.2.0/css/font-awesome.css" integrity="sha512-vTF66+NUFBh1RYzB09CzDYgbCeXhYpaBrydVaSAeYMjlRZ+unsPguBSioDFfMd8n2jYLijqhpJOAhEa0vdcUew==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
+        <meta charset="utf-8" />
+        <title>Blank</title>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+        <meta content="" name="description" />
+        <meta content="" name="author" />
+        <link href="{{asset('admin')}}/assets/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+        <link href="{{asset('admin')}}/assets/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet" />
+        <link href="{{asset('admin')}}/assets/bootstrap/css/bootstrap-fileupload.css" rel="stylesheet" />
+        <link href="{{asset('admin')}}/assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
+        <link href="{{asset('admin')}}/css/style.css" rel="stylesheet" />
+        <link href="{{asset('admin')}}/css/style-responsive.css" rel="stylesheet" />
+        <link href="{{asset('admin')}}/css/style-default.css" rel="stylesheet" id="style_color" />
+
+   @stack('style')
 </head>
 <!-- END HEAD -->
 <!-- BEGIN BODY -->
@@ -46,7 +47,7 @@
    <!-- Load javascripts at bottom, this will reduce page load time -->
    <script src="{{asset('admin')}}/js/jquery-1.8.3.min.js"></script>
    <script src="{{asset('admin')}}/js/jquery.nicescroll.js" type="text/javascript"></script>
-   <script src="{{asset('admin')}}/js/bootstrap.min.js"></script>
+   <script src="{{asset('admin')}}/assets/bootstrap/js/bootstrap.min.js"></script>
    <script src="{{asset('admin')}}/js/jquery.scrollTo.min.js"></script>
 
    <!-- ie8 fixes -->
@@ -59,6 +60,8 @@
    <script src="{{asset('admin')}}/js/common-scripts.js"></script>
 
    <!-- END JAVASCRIPTS -->
+   <!-- Stack Script -->
+   @stack('script')
 </body>
 <!-- END BODY -->
 </html>

@@ -9,7 +9,7 @@
             <!--END SIDEBAR TOGGLE-->
             <!-- BEGIN LOGO -->
             <a class="brand" href="index.html">
-                <img src="img/logo.png" alt="Metro Lab" />
+                <img src="img/logo.png" alt="Job Circular" />
             </a>
             <!-- END LOGO -->
             <!-- BEGIN RESPONSIVE MENU TOGGLER -->

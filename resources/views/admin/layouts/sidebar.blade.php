@@ -11,7 +11,7 @@
         <!-- BEGIN SIDEBAR MENU -->
         <ul class="sidebar-menu">
             <li class="sub-menu">
-                <a class="" href="index.html">
+                <a class="" href="{{route('dashboard')}}">
                     <i class="icon-dashboard"></i>
                     <span>Dashboard</span>
                 </a>
@@ -19,21 +19,16 @@
             <li class="sub-menu">
                 <a href="javascript:;" class="">
                     <i class="icon-book"></i>
-                    <span>UI Elements</span>
+                    <span>Circular</span>
                     <span class="arrow"></span>
                 </a>
                 <ul class="sub">
-                    <li><a class="" href="general.html">General</a></li>
-                    <li><a class="" href="button.html">Buttons</a></li>
-                    <li><a class="" href="slider.html">Sliders</a></li>
-                    <li><a class="" href="metro_view.html">Metro View</a></li>
-                    <li><a class="" href="tabs_accordion.html">Tabs & Accordions</a></li>
-                    <li><a class="" href="typography.html">Typography</a></li>
-                    <li><a class="" href="tree_view.html">Tree View</a></li>
-                    <li><a class="" href="nestable.html">Nestable List</a></li>
+                    <li><a class="" href="{{route('circular.index')}}">All Circular</a></li>
+                    <li><a class="" href="{{route('circular.create')}}">Add Circular</a></li>
+                    <li><a class="" href="slider.html">Category</a></li>
                 </ul>
             </li>
-            <li class="sub-menu">
+            {{-- <li class="sub-menu">
                 <a href="javascript:;" class="">
                     <i class="icon-cogs"></i>
                     <span>Components</span>
@@ -143,7 +138,7 @@
                     <i class="icon-user"></i>
                     <span>Login Page</span>
                 </a>
-            </li>
+            </li> --}}
         </ul>
         <!-- END SIDEBAR MENU -->
     </div>
