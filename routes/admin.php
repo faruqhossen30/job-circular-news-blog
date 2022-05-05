@@ -18,12 +18,11 @@ use App\Http\Controllers\Admin\CategoryController;
 
 
 Route::prefix('admin')->group(function () {
-    Route::get('/dashboard', [DashboardController::class, 'dashboardPage'])->name('dashboard');
-    Route::resource('circular', CircularController::class);
-    Route::resource('category', CategoryController::class);
 
-    Route::group(['middleware' => 'isAdmin'], function () {
-
+    Route::group(['middleware' => 'auth'], function () {
+        Route::get('/dashboard', [DashboardController::class, 'dashboardPage'])->name('dashboard');
+        Route::resource('circular', CircularController::class);
+        Route::resource('category', CategoryController::class);
     });
 });
 

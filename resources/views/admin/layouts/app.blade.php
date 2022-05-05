@@ -34,13 +34,13 @@
       <!-- BEGIN PAGE -->
         @yield('content')
       <!-- END PAGE -->
+      <div id="footer">
+          2022 &copy; Job Circular BD
+      </div>
    </div>
    <!-- END CONTAINER -->
 
    <!-- BEGIN FOOTER -->
-   <div id="footer">
-       2022 &copy; Job Circular BD
-   </div>
    <!-- END FOOTER -->
 
    <!-- BEGIN JAVASCRIPTS -->

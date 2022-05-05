@@ -120,7 +120,7 @@
                                 <a href="#">
                                     <span class="photo"><img src="./img/avatar-mini.png" alt="avatar" /></span>
                                  <span class="subject">
-                                 <span class="from">Jhon Doe</span>
+                                 <span class="from">{{Auth::user()->name}}</span>
                                  <span class="time">10 mins</span>
                                  </span>
                                  <span class="message">
@@ -233,13 +233,23 @@
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                             <img src="img/avatar1_small.jpg" alt="">
-                            <span class="username">Jhon Doe</span>
+                            <span class="username">{{Auth::user()->name}}</span>
                             <b class="caret"></b>
                         </a>
                         <ul class="dropdown-menu extended logout">
                             <li><a href="#"><i class="icon-user"></i> My Profile</a></li>
                             <li><a href="#"><i class="icon-cog"></i> My Settings</a></li>
-                            <li><a href="login.html"><i class="icon-key"></i> Log Out</a></li>
+                            <li>
+                                <a class="" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        <i class="icon-key"></i>{{ __('Logout') }}
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                        @csrf
+                                    </form>
+                            </li>
                         </ul>
                     </li>
                     <!-- END USER LOGIN DROPDOWN -->

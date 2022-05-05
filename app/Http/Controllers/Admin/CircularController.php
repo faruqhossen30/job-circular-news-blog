@@ -44,10 +44,11 @@ class CircularController extends Controller
         // return $request->all();
 
         $thumbnailname = null;
-        if($request->file('thumbnail')){
+        if ($request->file('thumbnail')) {
             $thumbnailname = $request->thumbnail->getClientOriginalName();
             $request->thumbnail->storeAs('circular', $thumbnailname, 'public');
         }
+        $circular_image = $request->file('circular_image');
 
         $data = [
             'title'                => $request->title,
@@ -66,7 +67,20 @@ class CircularController extends Controller
             'meta_tag'             => $request->meta_keyword
         ];
 
-        Circular::create($data);
+        $circular = Circular::create($data);
+
+        // if (!empty($circular_image)) {
+        //     foreach ($circular_image as $image) {
+        //         $thumbnailname = $request->thumbnail->getClientOriginalName();
+        //         $request->thumbnail->storeAs('circular', $thumbnailname, 'public');
+
+        //         ProductImgFull::create([
+        //             'url' => $image,
+        //             'product_id' => $product->id,
+        //         ]);
+        //     }
+        // };
+
 
         return redirect()->route('circular.index');
     }
