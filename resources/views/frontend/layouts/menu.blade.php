@@ -2,7 +2,7 @@
     <div class="container bg-body">
       <nav class="navbar navbar-expand-lg navbar-light ">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#">
+          <a class="navbar-brand" href="{{route('homepage')}}">
             <img src="{{asset('frontend/img/logo.png')}}" alt="">
           </a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse"

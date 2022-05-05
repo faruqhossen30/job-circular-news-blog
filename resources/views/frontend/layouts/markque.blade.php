@@ -12,8 +12,12 @@
                     scrollamount="3">
                     <!-- End Page-->
                     <span class="ticker">
-                      <a href="#" class="text-decoration-none fw-bold text-secondary">সরকারী চাকরীর সকল খবর এখানেই পাবেন।
-                      </a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                        @foreach ($circulars as $circular)
+
+                        <a href="#" class="text-decoration-none fw-bold text-secondary">
+                            {{$circular->title}}
+                        </a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                        @endforeach
                   </marquee>
                 </td>
               </tr>

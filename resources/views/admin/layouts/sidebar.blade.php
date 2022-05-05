@@ -10,22 +10,33 @@
         <!-- END RESPONSIVE QUICK SEARCH FORM -->
         <!-- BEGIN SIDEBAR MENU -->
         <ul class="sidebar-menu">
-            <li class="sub-menu">
+            <li class="sub-menu active">
                 <a class="" href="{{route('dashboard')}}">
                     <i class="icon-dashboard"></i>
                     <span>Dashboard</span>
                 </a>
             </li>
-            <li class="sub-menu active">
+            <li class="sub-menu">
                 <a href="javascript:;" class="">
                     <i class="icon-book"></i>
                     <span>Circular</span>
                     <span class="arrow"></span>
                 </a>
                 <ul class="sub">
-                    <li><a class="active" href="{{route('circular.index')}}">All Circular</a></li>
+                    <li><a class="" href="{{route('circular.index')}}">All Circular</a></li>
                     <li><a class="" href="{{route('circular.create')}}">Add Circular</a></li>
                     <li><a class="" href="{{route('category.index')}}">Category</a></li>
+                </ul>
+            </li>
+            <li class="sub-menu ">
+                <a href="javascript:;" class="">
+                    <i class="icon-book"></i>
+                    <span>News</span>
+                    <span class="arrow"></span>
+                </a>
+                <ul class="sub">
+                    <li><a class="" href="{{route('news.index')}}">All News</a></li>
+                    <li><a class="" href="{{route('news.create')}}">Add News</a></li>
                 </ul>
             </li>
 

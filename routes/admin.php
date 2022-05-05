@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\CircularController;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\NewsController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -22,7 +23,10 @@ Route::prefix('admin')->group(function () {
     Route::group(['middleware' => 'auth'], function () {
         Route::get('/dashboard', [DashboardController::class, 'dashboardPage'])->name('dashboard');
         Route::resource('circular', CircularController::class);
+        Route::resource('news', NewsController::class);
         Route::resource('category', CategoryController::class);
     });
+
+
 });
 

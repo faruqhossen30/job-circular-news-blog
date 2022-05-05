@@ -8,8 +8,8 @@
             </div>
             <!--END SIDEBAR TOGGLE-->
             <!-- BEGIN LOGO -->
-            <a class="brand" href="index.html">
-                <img src="img/logo.png" alt="Job Circular" />
+            <a class="brand" href="{{route('dashboard')}}">
+                <img src="{{asset('frontend/img/logo.png')}}" alt="Job Circular" />
             </a>
             <!-- END LOGO -->
             <!-- BEGIN RESPONSIVE MENU TOGGLER -->

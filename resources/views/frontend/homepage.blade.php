@@ -69,86 +69,20 @@
                 <div class="col-lg-8 col-12">
                     <div class="row">
 
+                        @foreach ($circulars as $circular)
                         <div class="col-sm-6 col-md-4 mt-3">
                             <div class="card">
-                                <img src="{{ asset('frontend/img/tv.jpg') }}" class="card-img-top">
+                                {{-- <img src="{{ asset('frontend/img/tv.jpg') }}" class="card-img-top"> --}}
+                                <img src="{{ asset('storage/circular/'.$circular->thumbnail) }}" class="card-img-top">
                                 <div class="card-body">
-                                    <a href="#" class="card-text text-decoration-none fw-bold text-secondary">Lorem ipsum
-                                        dolor sit amet
-                                        consectetur adipisicing elit. Impedit, veritatis.</a>
+                                    <a href="#" class="card-text text-decoration-none fw-bold text-secondary">
+                                        {{$circular->title}}
+                                    </a>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-sm-6 col-md-4 mt-3">
-                            <div class="card">
-                                <img src="{{ asset('frontend/img/tv.jpg') }}" class="card-img-top">
-                                <div class="card-body">
-                                    <a href="#" class="card-text text-decoration-none fw-bold text-secondary">Lorem ipsum
-                                        dolor sit amet
-                                        consectetur adipisicing elit. Impedit, veritatis.</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 col-md-4 mt-3">
-                            <div class="card">
-                                <img src="{{ asset('frontend/img/tv.jpg') }}" class="card-img-top">
-                                <div class="card-body">
-                                    <a href="#" class="card-text text-decoration-none fw-bold text-secondary">Lorem ipsum
-                                        dolor sit amet
-                                        consectetur adipisicing elit. Impedit, veritatis.</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 col-md-4 mt-3">
-                            <div class="card">
-                                <img src="{{ asset('frontend/img/tv.jpg') }}" class="card-img-top">
-                                <div class="card-body">
-                                    <a href="#" class="card-text text-decoration-none fw-bold text-secondary">Lorem ipsum
-                                        dolor sit amet
-                                        consectetur adipisicing elit. Impedit, veritatis.</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 col-md-4 mt-3">
-                            <div class="card">
-                                <img src="{{ asset('frontend/img/tv.jpg') }}" class="card-img-top">
-                                <div class="card-body">
-                                    <a href="#" class="card-text text-decoration-none fw-bold text-secondary">Lorem ipsum
-                                        dolor sit amet
-                                        consectetur adipisicing elit. Impedit, veritatis.</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 col-md-4 mt-3">
-                            <div class="card">
-                                <img src="{{ asset('frontend/img/tv.jpg') }}" class="card-img-top">
-                                <div class="card-body">
-                                    <a href="#" class="card-text text-decoration-none fw-bold text-secondary">Lorem ipsum
-                                        dolor sit amet
-                                        consectetur adipisicing elit. Impedit, veritatis.</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 col-md-4 mt-3">
-                            <div class="card">
-                                <img src="{{ asset('frontend/img/tv.jpg') }}" class="card-img-top">
-                                <div class="card-body">
-                                    <a href="#" class="card-text text-decoration-none fw-bold text-secondary">Lorem ipsum
-                                        dolor sit amet
-                                        consectetur adipisicing elit. Impedit, veritatis.</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 col-md-4 mt-3">
-                            <div class="card">
-                                <img src="{{ asset('frontend/img/tv.jpg') }}" class="card-img-top">
-                                <div class="card-body">
-                                    <a href="#" class="card-text text-decoration-none fw-bold text-secondary">Lorem ipsum
-                                        dolor sit amet
-                                        consectetur adipisicing elit. Impedit, veritatis.</a>
-                                </div>
-                            </div>
-                        </div>
+
+                        @endforeach
 
 
                     </div>
@@ -168,115 +102,21 @@
                 </div>
             </div>
             <div class="row">
+                @foreach ($circulars as $circular)
+                    <div class="col-sm-6 col-md-6 col-lg-4 mt-3">
+                        <div class="card">
+                            <div class="d-flex flex-row">
+                                <img src="{{ asset('frontend/img/tv.jpg') }}" class="img-fluid" style="width: 100px;"
+                                    alt="">
+                                <a href="#" class="p-2 text-decoration-none fw-bold text-secondary">Lorem ipsum dolor sit
+                                    amet
+                                    consectetur
+                                    adipisicing elit. Voluptas, veritatis.</a>
 
-                <div class="col-sm-6 col-md-6 col-lg-4 mt-3">
-                    <div class="card">
-                        <div class="d-flex flex-row">
-                            <img src="{{ asset('frontend/img/tv.jpg') }}" class="img-fluid" style="width: 100px;"
-                                alt="">
-                            <a href="#" class="p-2 text-decoration-none fw-bold text-secondary">Lorem ipsum dolor sit amet
-                                consectetur
-                                adipisicing elit. Voluptas, veritatis.</a>
-
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-sm-6 col-md-6 col-lg-4 mt-3">
-                    <div class="card">
-                        <div class="d-flex flex-row">
-                            <img src="{{ asset('frontend/img/tv.jpg') }}" class="img-fluid" style="width: 100px;"
-                                alt="">
-                            <a href="#" class="p-2 text-decoration-none fw-bold text-secondary">Lorem ipsum dolor sit amet
-                                consectetur
-                                adipisicing elit. Voluptas, veritatis.</a>
-
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-md-6 col-lg-4 mt-3">
-                    <div class="card">
-                        <div class="d-flex flex-row">
-                            <img src="{{ asset('frontend/img/tv.jpg') }}" class="img-fluid" style="width: 100px;"
-                                alt="">
-                            <a href="#" class="p-2 text-decoration-none fw-bold text-secondary">Lorem ipsum dolor sit amet
-                                consectetur
-                                adipisicing elit. Voluptas, veritatis.</a>
-
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-md-6 col-lg-4 mt-3">
-                    <div class="card">
-                        <div class="d-flex flex-row">
-                            <img src="{{ asset('frontend/img/tv.jpg') }}" class="img-fluid" style="width: 100px;"
-                                alt="">
-                            <a href="#" class="p-2 text-decoration-none fw-bold text-secondary">Lorem ipsum dolor sit amet
-                                consectetur
-                                adipisicing elit. Voluptas, veritatis.</a>
-
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-md-6 col-lg-4 mt-3">
-                    <div class="card">
-                        <div class="d-flex flex-row">
-                            <img src="{{ asset('frontend/img/tv.jpg') }}" class="img-fluid" style="width: 100px;"
-                                alt="">
-                            <a href="#" class="p-2 text-decoration-none fw-bold text-secondary">Lorem ipsum dolor sit amet
-                                consectetur
-                                adipisicing elit. Voluptas, veritatis.</a>
-
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-md-6 col-lg-4 mt-3">
-                    <div class="card">
-                        <div class="d-flex flex-row">
-                            <img src="{{ asset('frontend/img/tv.jpg') }}" class="img-fluid" style="width: 100px;"
-                                alt="">
-                            <a href="#" class="p-2 text-decoration-none fw-bold text-secondary">Lorem ipsum dolor sit amet
-                                consectetur
-                                adipisicing elit. Voluptas, veritatis.</a>
-
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-md-6 col-lg-4 mt-3">
-                    <div class="card">
-                        <div class="d-flex flex-row">
-                            <img src="{{ asset('frontend/img/tv.jpg') }}" class="img-fluid" style="width: 100px;"
-                                alt="">
-                            <a href="#" class="p-2 text-decoration-none fw-bold text-secondary">Lorem ipsum dolor sit amet
-                                consectetur
-                                adipisicing elit. Voluptas, veritatis.</a>
-
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-md-6 col-lg-4 mt-3">
-                    <div class="card">
-                        <div class="d-flex flex-row">
-                            <img src="{{ asset('frontend/img/tv.jpg') }}" class="img-fluid" style="width: 100px;"
-                                alt="">
-                            <a href="#" class="p-2 text-decoration-none fw-bold text-secondary">Lorem ipsum dolor sit amet
-                                consectetur
-                                adipisicing elit. Voluptas, veritatis.</a>
-
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-md-6 col-lg-4 mt-3">
-                    <div class="card">
-                        <div class="d-flex flex-row">
-                            <img src="{{ asset('frontend/img/tv.jpg') }}" class="img-fluid" style="width: 100px;"
-                                alt="">
-                            <a href="#" class="p-2 text-decoration-none fw-bold text-secondary">Lorem ipsum dolor sit amet
-                                consectetur
-                                adipisicing elit. Voluptas, veritatis.</a>
-
-                        </div>
-                    </div>
-                </div>
+                @endforeach
 
             </div>
         </div>
