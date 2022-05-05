@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\CircularController;
+use App\Http\Controllers\Admin\CategoryController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,6 +20,7 @@ use App\Http\Controllers\Admin\CircularController;
 Route::prefix('admin')->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'dashboardPage'])->name('dashboard');
     Route::resource('circular', CircularController::class);
+    Route::resource('category', CategoryController::class);
 
     Route::group(['middleware' => 'isAdmin'], function () {
 

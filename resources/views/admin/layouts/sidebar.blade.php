@@ -16,18 +16,19 @@
                     <span>Dashboard</span>
                 </a>
             </li>
-            <li class="sub-menu">
+            <li class="sub-menu active">
                 <a href="javascript:;" class="">
                     <i class="icon-book"></i>
                     <span>Circular</span>
                     <span class="arrow"></span>
                 </a>
                 <ul class="sub">
-                    <li><a class="" href="{{route('circular.index')}}">All Circular</a></li>
+                    <li><a class="active" href="{{route('circular.index')}}">All Circular</a></li>
                     <li><a class="" href="{{route('circular.create')}}">Add Circular</a></li>
-                    <li><a class="" href="slider.html">Category</a></li>
+                    <li><a class="" href="{{route('category.index')}}">Category</a></li>
                 </ul>
             </li>
+
             {{-- <li class="sub-menu">
                 <a href="javascript:;" class="">
                     <i class="icon-cogs"></i>

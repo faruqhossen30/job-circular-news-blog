@@ -56,46 +56,41 @@
 
             <div id="page-wraper">
 
-                <div class="row-fluid">
-                    <div class="span12">
-                        <!-- BEGIN BASIC PORTLET-->
-                        <div class="widget yellow">
-                            <div class="widget-title">
-                                <h4><i class="icon-reorder"></i> Hover Table</h4>
-                                <span class="tools">
-                                    <a href="javascript:;" class="icon-chevron-down"></a>
-                                    <a href="javascript:;" class="icon-remove"></a>
-                                </span>
-                            </div>
-                            <div class="widget-body">
-                                <table class="table table-hover table-bordered">
-                                    <thead>
-                                        <tr>
-                                            <th>#</th>
-                                            <th>Title</th>
-                                            <th>Category</th>
-                                            <th>status</th>
-                                            <th>Auction</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        @foreach ($circulars as $circular)
-                                            <tr>
-                                                <td>1</td>
-                                                <td>{{$circular->title}}</td>
-                                                <td>{{$circular->category->name}}</td>
-                                                <td><button class="btn btn-success"><i class="icon-ok"></i></button></td>
-                                                <td>
-                                                    <button class="btn btn-success"><i class="icon-ok"></i></button>
-                                                    <button class="btn btn-primary"><i class="icon-pencil"></i></button>
-                                                    <button class="btn btn-danger"><i class="icon-trash "></i></button>
-                                                </td>
-                                            </tr>
-                                        @endforeach
 
-                                    </tbody>
-                                </table>
+
+                <div class="row-fluid">
+
+                    <div class="span6">
+                        <!-- BEGIN BASIC PORTLET-->
+                        <div class="widget-body">
+                            <div class="btn-group dropup" style="margin-bottom: 10px">
+                                <a href="{{ route('category.create') }}" class="btn btn-success"><i
+                                        class="icon-plus"></i> Create Category</a>
                             </div>
+                            <table class="table table-hover table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Name</th>
+                                        <th>Acrion</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($categories as $category)
+                                    <tr>
+                                        <td>1</td>
+                                        <td>{{$category->name}}</td>
+                                        <td>
+                                            <a href="#" class="btn btn-success"><i class="icon-ok"></i></a>
+                                            <a href="{{route('category.edit', $category->id)}}" class="btn btn-primary"><i class="icon-pencil"></i></a>
+                                            <button class="btn btn-danger"><i class="icon-trash "></i></button>
+                                        </td>
+                                        </td>
+                                    </tr>
+                                    @endforeach
+
+                                </tbody>
+                            </table>
                         </div>
                         <!-- END BASIC PORTLET-->
                     </div>

@@ -16,7 +16,8 @@ return new class extends Migration
         Schema::create('circulars', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->string('content');
+            $table->string('slug');
+            $table->longText('content');
             $table->string('thumbnail')->nullable();
             $table->unsignedBigInteger('category_id')->nullable();
             // Organization Info
@@ -26,7 +27,6 @@ return new class extends Migration
             $table->string('organization_website')->nullable();
             $table->string('apply_link')->nullable();
             $table->string('vacancy')->nullable();
-            $table->string('cirrular_image')->nullable();
             // SEO
             $table->string('meta_title')->nullable();
             $table->string('meta_description')->nullable();
