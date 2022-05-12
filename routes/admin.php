@@ -21,7 +21,7 @@ use App\Http\Controllers\Admin\NewsController;
 Route::prefix('admin')->group(function () {
 
     Route::group(['middleware' => 'auth'], function () {
-        Route::get('/dashboard', [DashboardController::class, 'dashboardPage'])->name('dashboard');
+        Route::get('/dashboard', [DashboardController::class, 'dashboardPage'])->name('admin.dashboard');
         Route::resource('circular', CircularController::class);
         Route::resource('news', NewsController::class);
         Route::resource('category', CategoryController::class);
