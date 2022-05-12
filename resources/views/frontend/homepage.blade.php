@@ -102,16 +102,15 @@
                 </div>
             </div>
             <div class="row">
-                @foreach ($circulars as $circular)
+                @foreach ($allnews as $news)
                     <div class="col-sm-6 col-md-6 col-lg-4 mt-3">
                         <div class="card">
                             <div class="d-flex flex-row">
-                                <img src="{{ asset('frontend/img/tv.jpg') }}" class="img-fluid" style="width: 100px;"
-                                    alt="">
-                                <a href="#" class="p-2 text-decoration-none fw-bold text-secondary">Lorem ipsum dolor sit
-                                    amet
-                                    consectetur
-                                    adipisicing elit. Voluptas, veritatis.</a>
+                                {{-- <img src="{{ asset('frontend/img/tv.jpg') }}" class="img-fluid" style="width: 100px;" alt=""> --}}
+                                <img src="{{ asset('storage/news/'.$news->thumbnail) }}" class="img-fluid" style="width: 100px;" alt="">
+                                <a href="#" class="p-2 text-decoration-none fw-bold text-secondary">
+                                    {{$news->title}}
+                                </a>
 
                             </div>
                         </div>

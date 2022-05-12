@@ -18,10 +18,10 @@ return new class extends Migration
             $table->string('title');
             $table->string('slug');
             $table->longText('content');
-            $table->string('thumbnail');
-            $table->string('meta_description');
-            $table->string('meta_keyword');
-            $table->date('end_date');
+            $table->string('thumbnail')->nullable();
+            $table->string('meta_description')->nullable();
+            $table->string('meta_keyword')->nullable();
+            $table->date('end_date')->nullable();
             $table->timestamps();
         });
     }
