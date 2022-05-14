@@ -39,20 +39,30 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        return $request->all();
+        // return $request->all();
 
         $request->validate([
             'name' => 'required'
         ]);
+        $thumbnailname = null;
+        if ($request->file('thumbnail')) {
+            $request->file('thumbnail')->storeAs(
+                'catagories',
+                $request->file('thumbnail')->getClientOriginalName()
+            );
+            $thumbnailname = $request->file('thumbnail')->getClientOriginalName();
+        }
 
         Category::create([
-            'name' => $request->name,
-            'meta_content' => $request->meta_content,
-            'slug' => make_slug($request->name),
-            'meta_keyword' => $request->meta_keyword
+            'name'             => $request->name,
+            'meta_description' => $request->meta_description,
+            'slug'             => make_slug($request->name),
+            'thumbnail'        => $thumbnailname,
+            'meta_keyword'     => json_encode($request->meta_keyword)
         ]);
 
-        return redirect()->route('category.index');
+        // return redirect()->route('category.index');
+        return redirect()->back();
     }
 
     /**
@@ -75,6 +85,7 @@ class CategoryController extends Controller
     public function edit($id)
     {
         $category = Category::firstWhere('id', $id);
+        // return $category;
         return view('admin.category.edit', compact('category'));
     }
 
@@ -90,12 +101,21 @@ class CategoryController extends Controller
         $request->validate([
             'name' => 'required'
         ]);
+        $thumbnailname = null;
+        if ($request->file('thumbnail')) {
+            $request->file('thumbnail')->storeAs(
+                'catagories',
+                $request->file('thumbnail')->getClientOriginalName()
+            );
+            $thumbnailname = $request->file('thumbnail')->getClientOriginalName();
+        }
 
-        Category::firstWhere('id', $id)->update([
-            'name' => $request->name,
-            'meta_content' => $request->meta_content,
-            'slug' => make_slug($request->name),
-            'meta_keyword' => $request->meta_keyword
+        Category::where('id', $id)->update([
+            'name'             => $request->name,
+            'meta_description' => $request->meta_description,
+            'slug'             => make_slug($request->name),
+            'thumbnail'        => $thumbnailname,
+            'meta_keyword'     => json_encode($request->meta_keyword)
         ]);
 
         return redirect()->route('category.index');
@@ -109,6 +129,8 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Category::where('id', $id)->delete();
+
+        return redirect()->route('category.index');
     }
 }

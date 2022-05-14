@@ -2,7 +2,6 @@
 
 @section('title', 'Category Page');
 
-
 @section('content')
     <div class="container mt-3">
         <div class="row">
@@ -25,7 +24,7 @@
                                 @foreach ($categories as $key => $category)
                                     <tr>
                                         <td>{{ $key + 1 }}</td>
-                                        <td>{{ $category->title }}</td>
+                                        <td>{{ $category->name }}</td>
                                         <td>
                                             <a href="{{ route('category.edit', $category->id) }}"
                                                 class="btn btn-primary">Edit</a>

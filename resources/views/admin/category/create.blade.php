@@ -13,8 +13,8 @@
             <div class="d-flex">
                 <div class="breadcrumb">
                     <a href="index.html" class="breadcrumb-item"><i class="icon-home2 mr-2"></i> Home</a>
-                    <a href="form_inputs.html" class="breadcrumb-item">Forms</a>
-                    <span class="breadcrumb-item active">Basic inputs</span>
+                    <a href="form_inputs.html" class="breadcrumb-item">Category</a>
+                    <span class="breadcrumb-item active">Create</span>
                 </div>
 
                 <a href="#" class="header-elements-toggle text-default d-md-none"><i class="icon-more"></i></a>
@@ -54,7 +54,7 @@
         <!-- Form inputs -->
         <div class="card">
             <div class="card-header header-elements-inline">
-                <h5 class="card-title">Basic form inputs</h5>
+                <h5 class="card-title">Create Category</h5>
                 <div class="header-elements">
                     <div class="list-icons">
                         <a class="list-icons-item" data-action="collapse"></a>
@@ -84,14 +84,7 @@
                             <label class="col-form-label col-lg-2">Meta tag</label>
                             <div class="col-lg-10">
                             <select name="meta_keyword[]" class="form-control select-multiple-tokenization" multiple="multiple" data-fouc>
-                                <option value="AZ">Arizona</option>
-                                <option value="CO">Colorado</option>
-                                <option value="ID">Idaho</option>
-                                <option value="WY">Wyoming</option>
-                                <option value="AL" selected>Alabama</option>
-                                <option value="IA">Iowa</option>
-                                <option value="KS">Kansas</option>
-                                <option value="KY">Kentucky</option>
+
                             </select>
                             </div>
                         </div>

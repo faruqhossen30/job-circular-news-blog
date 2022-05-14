@@ -17,9 +17,9 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('slug');
-            $table->string('thumbnail');
-            $table->string('meta_description');
-            $table->string('meta_keyword');
+            $table->string('thumbnail')->nullable();
+            $table->string('meta_description')->nullable();
+            $table->string('meta_keyword')->nullable();
             $table->timestamps();
         });
     }

@@ -58,8 +58,8 @@
                 <li class="nav-item nav-item-submenu">
                     <a href="#" class="nav-link"><i class="icon-copy"></i> <span>Category</span></a>
                     <ul class="nav nav-group-sub" data-submenu-title="Layouts">
-                        <li class="nav-item"><a href="#" class="nav-link">All Category</a></li>
-                        <li class="nav-item"><a href="#" class="nav-link">Add Category</a></li>
+                        <li class="nav-item"><a href="{{route('category.index')}}" class="nav-link">All Category</a></li>
+                        <li class="nav-item"><a href="{{route('category.create')}}" class="nav-link">Add Category</a></li>
 
                     </ul>
                 </li>
