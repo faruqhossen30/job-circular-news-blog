@@ -54,7 +54,7 @@
             <!-- Form inputs -->
             <div class="card">
                 <div class="card-header header-elements-inline">
-                    <h5 class="card-title">Create Category</h5>
+                    <h5 class="card-title">Update Category</h5>
                     <div class="header-elements">
                         <div class="list-icons">
                             <a class="list-icons-item" data-action="collapse"></a>
@@ -68,7 +68,6 @@
                         @csrf
                         @method('PUT')
                         <fieldset class="mb-3">
-
                             <div class="form-group row">
                                 <label class="col-form-label col-lg-2">Category Name </label>
                                 <div class="col-lg-10">
@@ -87,14 +86,15 @@
                             <div class="form-group row">
                                 <label class="col-form-label col-lg-2">Meta tag</label>
                                 <div class="col-lg-10">
-                                    <select name="meta_keyword[]" class="form-control select-multiple-tokenization"
+                                    <select name="meta_keyword" class="form-control select-multiple-tokenization"
                                         multiple="multiple" data-fouc>
                                         @if ($category->meta_keyword && is_array(json_decode($category->meta_keyword)) )
 
-                                            @foreach (json_decode($category->meta_keyword) as $keyword)
-                                                <option value="{{ $keyword }}" selected>{{ $keyword }}</option>
-                                            @endforeach
-                                        @endif
+                                        @foreach (json_decode($category->meta_keyword) as $keyword)
+                                            <option value="{{ $keyword }}" selected>{{ $keyword }}</option>
+                                        @endforeach
+                                    @endif
+
                                     </select>
                                 </div>
                             </div>
@@ -110,7 +110,7 @@
                         </fieldset>
 
                         <div class="text-right">
-                            <button type="submit" class="btn btn-primary">Submit <i
+                            <button type="submit" class="btn btn-primary">Update <i
                                     class="icon-paperplane ml-2"></i></button>
                         </div>
                     </form>

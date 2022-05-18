@@ -28,6 +28,7 @@ return new class extends Migration
             $table->string('apply_link')->nullable();
             $table->string('vacancy')->nullable();
             // SEO
+            $table->string('meta_title')->nullable();
             $table->string('meta_description')->nullable();
             $table->string('meta_tag')->nullable();
 

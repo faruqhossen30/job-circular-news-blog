@@ -10,11 +10,11 @@
                 <div class="card">
                     <div class="card-body">
                         <table class="table datatable-basic">
-                            <a href="{{ route('category.create') }}" class="btn btn-primary">Add Category</a>
+                            <a href="{{ route('circular.create') }}" class="btn btn-primary">Add Circular</a>
                             <thead>
                                 <tr>
                                     <th>SL</th>
-                                    <th>Category Name</th>
+                                    <th>Circular Title</th>
                                     <th>Image</th>
                                     <th>Category</th>
                                     <th>Action</th>
@@ -26,9 +26,13 @@
                                     <tr>
                                         <td>{{ $key + 1 }}</td>
                                         <td>{{ $circular->title }}</td>
-                                        <td>{{ $circular->title }}</td>
+                                        <td>
+                                            <img src="{{ asset('storage/circular/' .$circular->thumbnail)  }}" style="width: 100px;height:80px" alt="thumbnail">
+                                        </td>
                                         <td>{{ $circular->category_id }}</td>
                                         <td>
+                                            <a href="{{ route('circular.show', $circular->id) }}"
+                                                class="btn btn-primary">Show</a>
                                             <a href="{{ route('circular.edit', $circular->id) }}"
                                                 class="btn btn-primary">Edit</a>
 

@@ -26,6 +26,9 @@
                                         <td>{{ $key + 1 }}</td>
                                         <td>{{ $category->name }}</td>
                                         <td>
+                                            <img src="{{ asset('storage/circular/' .$category->thumbnail)  }}" style="width: 100px;height:80px" alt="thumbnail">
+                                        </td>
+                                        <td>
                                             <a href="{{ route('category.edit', $category->id) }}"
                                                 class="btn btn-primary">Edit</a>
 

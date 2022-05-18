@@ -13,7 +13,7 @@
                 <div class="d-flex">
                     <div class="breadcrumb">
                         <a href="index.html" class="breadcrumb-item"><i class="icon-home2 mr-2"></i> Home</a>
-                        <a href="form_inputs.html" class="breadcrumb-item">circular </a>
+                        <a href="form_inputs.html" class="breadcrumb-item">Circular </a>
                         <span class="breadcrumb-item active">Create</span>
                     </div>
 
@@ -55,7 +55,7 @@
                 <!-- Form inputs -->
                 <div class="card">
                     <div class="card-header header-elements-inline">
-                        <h5 class="card-title">Create circular </h5>
+                        <h5 class="card-title">Create Circular </h5>
                         <div class="header-elements">
                             <div class="list-icons">
                                 <a class="list-icons-item" data-action="collapse"></a>
@@ -123,7 +123,7 @@
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
-                                    <label class="col-form-label col-md-2">Stat Date</label>
+                                    <label class="col-form-label col-md-2">End Date</label>
                                     <div class="col-md-10">
                                         <input name="end_date" class="form-control" type="date" name="date">
                                     </div>
@@ -150,25 +150,25 @@
                     <div class="card-body">
                         <fieldset class="mb-3">
                             <div class="form-group row">
-                                <label class="col-form-label col-lg-2">organization_name</label>
+                                <label class="col-form-label col-lg-2">Organization Name</label>
                                 <div class="col-lg-10">
                                     <input name="organization_name" type="text" class="form-control">
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label class="col-form-label col-lg-2">organization_website</label>
+                                <label class="col-form-label col-lg-2">Organization Website</label>
                                 <div class="col-lg-10">
                                     <input name="organization_website" type="text" class="form-control">
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label class="col-form-label col-lg-2">apply_link</label>
+                                <label class="col-form-label col-lg-2">Apply Link</label>
                                 <div class="col-lg-10">
                                     <input name="apply_link" type="text" class="form-control">
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label class="col-form-label col-lg-2">vacancy</label>
+                                <label class="col-form-label col-lg-2">Vacancy</label>
                                 <div class="col-lg-10">
                                     <input name="vacancy" type="number" class="form-control">
                                 </div>
@@ -178,9 +178,11 @@
                         </fieldset>
 
                         <div class="text-right">
-                            <button type="submit" class="btn btn-primary">Create Circular <i class="icon-paperplane ml-2"></i></button>
+                            <button type="submit" class="btn btn-primary">Create Circular <i
+                                    class="icon-paperplane ml-2"></i></button>
                         </div>
-
+                    </div>
+                </div>
             </form>
         </div>
     </div>

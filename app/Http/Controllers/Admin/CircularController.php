@@ -46,7 +46,7 @@ class CircularController extends Controller
         $thumbnailname = null;
         if ($request->file('thumbnail')) {
             $thumbnailname = $request->thumbnail->getClientOriginalName();
-            $request->thumbnail->storeAs('circular', $thumbnailname, 'public');
+            $request->thumbnail->storeAs('circular', $thumbnailname);
         }
         $circular_image = $request->file('circular_image');
 
@@ -93,7 +93,8 @@ class CircularController extends Controller
      */
     public function show($id)
     {
-        //
+        $circulars = Circular::find($id);
+        return view('admin.circular.show',compact('circulars'));
     }
 
     /**
@@ -104,7 +105,12 @@ class CircularController extends Controller
      */
     public function edit($id)
     {
-        //
+        $categories = Category::all();
+        $circular = Circular::find($id);
+
+
+        // return $categories;
+        return view('admin.circular.edit',compact('circular','categories'));
     }
 
     /**
@@ -116,7 +122,30 @@ class CircularController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $thumbnailname = null;
+        if ($request->file('thumbnail')) {
+            $thumbnailname = $request->thumbnail->getClientOriginalName();
+            $request->thumbnail->storeAs('circular', $thumbnailname);
+        }
+        $circular_image = $request->file('circular_image');
+
+        Circular::where('id', $id)->update([
+            'title'                => $request->title,
+            'slug'                 => make_slug($request->title),
+            'description'          => $request->description,
+            'thumbnail'            => $thumbnailname,
+            'category_id'          => $request->category_id,
+            'start_date'           => $request->start_date,
+            'end_date'             => $request->end_date,
+            'organization_name'    => $request->organization_name,
+            'organization_website' => $request->organization_website,
+            'apply_link'           => $request->apply_link,
+            'vacancy'              => $request->vacancy,
+            'meta_title'           => $request->meta_title,
+            'meta_description'     => $request->meta_description,
+            'meta_tag'             => json_encode($request->meta_keyword)
+        ]);
+        return redirect()->route('circular.index');
     }
 
     /**
@@ -127,6 +156,8 @@ class CircularController extends Controller
      */
     public function destroy($id)
     {
-        //
+       $circular = Circular::find($id);
+       $circular->delete();
+       return redirect()->route('circular.index');
     }
 }

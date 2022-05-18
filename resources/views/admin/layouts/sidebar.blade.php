@@ -50,8 +50,8 @@
                 <li class="nav-item nav-item-submenu">
                     <a href="#" class="nav-link"><i class="icon-copy"></i> <span>Circular</span></a>
                     <ul class="nav nav-group-sub" data-submenu-title="Layouts">
-                        <li class="nav-item"><a href="#" class="nav-link">All Circular</a></li>
-                        <li class="nav-item"><a href="#" class="nav-link">Add Circular</a></li>
+                        <li class="nav-item"><a href="{{ route('circular.index') }}" class="nav-link">All Circular</a></li>
+                        <li class="nav-item"><a href="{{ route('circular.create') }}" class="nav-link">Add Circular</a></li>
 
                     </ul>
                 </li>
