@@ -34,6 +34,7 @@
 	<script src="{{asset('backend')}}/global_assets/js/demo_pages/dashboard.js"></script>
 	<!-- /theme JS files -->
 	<!-- Stack JS files -->
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
     @stack('script')
 	<!-- /Stack JS files -->
 </head>
@@ -59,5 +60,22 @@
 		<!-- /main content -->
 	</div>
 	<!-- /page content -->
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
+    <script>
+        $('#summernote').summernote({
+            placeholder: 'Post Description',
+            tabsize: 2,
+              height: 250,
+            toolbar: [
+                ['style', ['style']],
+                ['font', ['bold', 'underline', 'clear']],
+                ['color', ['color']],
+                ['para', ['ul', 'ol', 'paragraph']],
+                ['table', ['table']],
+                ['insert', ['link', 'picture', 'video']],
+                ['view', ['fullscreen', 'codeview', 'help']]
+            ]
+        });
+    </script>
 </body>
 </html>

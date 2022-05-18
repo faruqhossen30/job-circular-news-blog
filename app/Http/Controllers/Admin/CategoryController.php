@@ -7,6 +7,7 @@ use App\Models\Category;
 use Illuminate\Http\Request;
 
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Storage;
 
 class CategoryController extends Controller
 {
@@ -47,7 +48,7 @@ class CategoryController extends Controller
         $thumbnailname = null;
         if ($request->file('thumbnail')) {
             $request->file('thumbnail')->storeAs(
-                'catagories',
+                'categories',
                 $request->file('thumbnail')->getClientOriginalName()
             );
             $thumbnailname = $request->file('thumbnail')->getClientOriginalName();
@@ -62,7 +63,7 @@ class CategoryController extends Controller
         ]);
 
         // return redirect()->route('category.index');
-        return redirect()->back();
+        return redirect()->route('category.index');
     }
 
     /**
@@ -129,7 +130,13 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
+        $category = Category::where('id', $id)->first();
+        Storage::disk('public')->delete('categories/'.$category->thumbnail);
+
+        // return storage_path('app/catagories/'.$category->thumbnail);
+
         Category::where('id', $id)->delete();
+
 
         return redirect()->route('category.index');
     }

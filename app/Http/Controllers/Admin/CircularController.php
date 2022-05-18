@@ -53,7 +53,7 @@ class CircularController extends Controller
         $data = [
             'title'                => $request->title,
             'slug'                 => make_slug($request->title),
-            'content'              => $request->content,
+            'description'          => $request->description,
             'thumbnail'            => $thumbnailname,
             'category_id'          => $request->category_id,
             'start_date'           => $request->start_date,
@@ -64,7 +64,7 @@ class CircularController extends Controller
             'vacancy'              => $request->vacancy,
             'meta_title'           => $request->meta_title,
             'meta_description'     => $request->meta_description,
-            'meta_tag'             => $request->meta_keyword
+            'meta_tag'             => json_encode($request->meta_keyword)
         ];
 
         $circular = Circular::create($data);
