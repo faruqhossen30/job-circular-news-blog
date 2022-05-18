@@ -22,7 +22,7 @@
                 </div>
 
                 <div class="card-body">
-                    <form action="{{ route('circular.update', $circular->id) }}" method="POST"
+                    <form action="{{ route('news.update', $news->id) }}" method="POST"
                         enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
@@ -45,7 +45,7 @@
                                         <div class="form-group row">
                                             <label class="col-form-label col-lg-2">Title</label>
                                             <div class="col-lg-10">
-                                                <input name="title" value="{{ $circular->title }}" type="text"
+                                                <input name="title" value="{{ $news->title }}" type="text"
                                                     class="form-control">
                                             </div>
                                         </div>
@@ -53,7 +53,7 @@
                                         <div class="form-group row">
                                             <label class="col-form-label col-lg-2">Description</label>
                                             <div class="col-lg-10">
-                                                <textarea name="description" id="summernote">{{ $circular->description }}</textarea>
+                                                <textarea name="description" id="summernote">{{ $news->description }}</textarea>
                                             </div>
                                         </div>
                                         <div class="form-group row">
@@ -62,7 +62,7 @@
                                                 <select name="category_id" class="form-control">
                                                     <option selected value="" disabled>Select Category</option>
                                                     @foreach ($categories as $category)
-                                                        <option value="{{ $category->id }}" @if ($category->id == $circular->category_id) selected @endif>
+                                                        <option value="{{ $category->id }}" @if ($category->id == $news->category_id) selected @endif>
                                                             {{ $category->name }}</option>
                                                     @endforeach
 
@@ -73,7 +73,7 @@
                                             <label class="col-form-label col-lg-2">Meta Description</label>
                                             <div class="col-lg-10">
                                                 <textarea name="meta_description" rows="3" cols="3" class="form-control" placeholder="Default textarea">
-                                                    {{ trim($circular->meta_description) }}
+                                                    {{ trim($news->meta_description) }}
                                                 </textarea>
                                             </div>
                                         </div>
@@ -83,8 +83,8 @@
                                                 <select name="meta_keyword[]"
                                                     class="form-control select-multiple-tokenization" multiple="multiple"
                                                     data-fouc>
-                                                    @if ($circular->meta_tag && is_array(json_decode($circular->meta_tag)))
-                                                        @foreach (json_decode($circular->meta_tag) as $keyword)
+                                                    @if ($news->meta_keyword && is_array(json_decode($news->meta_keyword)))
+                                                        @foreach (json_decode($news->meta_keyword) as $keyword)
                                                             <option value="{{ $keyword }}" selected>{{ $keyword }}
                                                             </option>
                                                         @endforeach
@@ -99,64 +99,13 @@
                                                 <input name="thumbnail" type="file" class="form-control h-auto">
                                             </div>
                                         </div>
-                                        {{-- <div class="form-group row">
-                                            <label class="col-form-label col-lg-2">Default file input</label>
-                                            <div class="col-lg-10">
-                                                <img src="" alt="logo">
-                                            </div>
-                                        </div> --}}
 
                                         <div class="form-group row">
-                                            <div class="col-sm-6">
-                                                <label class="col-form-label col-md-2">Stat Date</label>
-                                                <div class="col-md-10">
-                                                    <input name="start_date" class="form-control" type="date" name="date" value="{{$circular->start_date->format('Y-m-d')}}">
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-6">
+                                            <div class="col-sm-6 offset-sm-2">
                                                 <label class="col-form-label col-md-2">End Date</label>
                                                 <div class="col-md-10">
-                                                    <input name="end_date" class="form-control" type="date" name="date" value="{{ $circular->end_date->format('Y-m-d') }}">
+                                                    <input name="end_date" class="form-control" type="date" name="date" value="{{ $news->end_date->format('Y-m-d') }}">
                                                 </div>
-                                            </div>
-                                        </div>
-                                    </fieldset>
-                                </div>
-                            </div>
-                            <div class="card">
-                                <div class="card-header header-elements-inline">
-                                    <h5 class="card-title">Organization Information</h5>
-                                    <div class="header-elements">
-                                        <div class="list-icons">
-                                            <a class="list-icons-item" data-action="collapse"></a>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="card-body">
-                                    <fieldset class="mb-3">
-                                        <div class="form-group row">
-                                            <label class="col-form-label col-lg-2">Organization Name</label>
-                                            <div class="col-lg-10">
-                                                <input name="organization_name" type="text" class="form-control" value="{{ $circular->organization_name }}">
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label class="col-form-label col-lg-2">Organization Website</label>
-                                            <div class="col-lg-10">
-                                                <input name="organization_website" type="text" class="form-control" value="{{ $circular->organization_website }}">
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label class="col-form-label col-lg-2">Apply Link</label>
-                                            <div class="col-lg-10">
-                                                <input name="apply_link" type="text" class="form-control" value="{{ $circular->apply_link }}">
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label class="col-form-label col-lg-2">Vacancy</label>
-                                            <div class="col-lg-10">
-                                                <input name="vacancy" type="number" class="form-control" value="{{ $circular->vacancy }}">
                                             </div>
                                         </div>
                                     </fieldset>

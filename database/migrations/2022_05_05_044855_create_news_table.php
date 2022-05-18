@@ -19,9 +19,11 @@ return new class extends Migration
             $table->string('slug');
             $table->longText('description');
             $table->string('thumbnail')->nullable();
+            $table->unsignedBigInteger('category_id')->nullable();
             $table->string('meta_description')->nullable();
             $table->string('meta_keyword')->nullable();
             $table->date('end_date')->nullable();
+            $table->unsignedBigInteger('user_id')->nullable();
             $table->timestamps();
         });
     }

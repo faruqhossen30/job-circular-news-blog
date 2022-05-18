@@ -53,7 +53,7 @@ class CircularController extends Controller
         $data = [
             'title'                => $request->title,
             'slug'                 => make_slug($request->title),
-            'description'          => $request->description,
+            'description'          => trim($request->description),
             'thumbnail'            => $thumbnailname,
             'category_id'          => $request->category_id,
             'start_date'           => $request->start_date,
@@ -132,7 +132,7 @@ class CircularController extends Controller
         Circular::where('id', $id)->update([
             'title'                => $request->title,
             'slug'                 => make_slug($request->title),
-            'description'          => $request->description,
+            'description'          => trim($request->description),
             'thumbnail'            => $thumbnailname,
             'category_id'          => $request->category_id,
             'start_date'           => $request->start_date,

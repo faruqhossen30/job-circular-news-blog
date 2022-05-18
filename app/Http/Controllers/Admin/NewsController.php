@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\News;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class NewsController extends Controller
 {
@@ -48,17 +49,17 @@ class NewsController extends Controller
         }
 
         News::create([
-            'title'        => $request->title,
-            'slug'         => make_slug($request->title),
-            'content'      => $request->content,
-            'thumbnail'    => $thumbnailname,
-            'meta_description' => $request->meta_description,
-            'meta_keyword' => $request->meta_keyword,
-            'end_date'     => $request->end_date
+            'title'             => $request->title,
+            'slug'              => make_slug($request->title),
+            'description'       => trim($request->description),
+            'thumbnail'         => $thumbnailname,
+            'category_id'       => $request->category_id,
+            'meta_description'  => $request->meta_description,
+            'meta_keyword'      => json_encode($request->meta_keyword),
+            'end_date'          => $request->end_date
         ]);
 
         return redirect()->route('news.index');
-
     }
 
     /**
@@ -69,7 +70,8 @@ class NewsController extends Controller
      */
     public function show($id)
     {
-        //
+        $news = News::find($id);
+        return view('admin.news.show', compact('news'));
     }
 
     /**
@@ -81,8 +83,9 @@ class NewsController extends Controller
     public function edit($id)
     {
         $news = News::firstWhere('id', $id);
+        $categories = Category::all();
         // return $news;
-        return view('admin.news.edit', compact('news'));
+        return view('admin.news.edit', compact('news', 'categories'));
     }
 
     /**
@@ -94,7 +97,27 @@ class NewsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        // return $request->all();
+
+        $thumbnailname = null;
+        if ($request->file('thumbnail')) {
+            $thumbnailname = $request->thumbnail->getClientOriginalName();
+            $request->thumbnail->storeAs('news', $thumbnailname, 'public');
+        }
+
+        News::where('id', $id)->update([
+            'title'        => $request->title,
+            'slug'         => make_slug($request->title),
+            'description'      => trim($request->description),
+            'thumbnail'    => $thumbnailname,
+            'category_id'          => $request->category_id,
+            'meta_description' => $request->meta_description,
+            'meta_keyword' => json_encode($request->meta_keyword),
+            'end_date'     => $request->end_date,
+            'user_id' => Auth::user()->id,
+        ]);
+
+        return redirect()->route('news.index');
     }
 
     /**
@@ -105,6 +128,8 @@ class NewsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $news = News::find($id);
+        $news->delete();
+        return redirect()->route('news.index');
     }
 }

@@ -9,7 +9,13 @@ class News extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['title', 'slug', 'content', 'thumbnail', 'end_date'];
+    protected $fillable = ['title','user_id', 'slug', 'description', 'thumbnail','category_id','meta_description','meta_keyword', 'end_date'];
 
     protected $dates = ['end_date'];
+
+    public function category()
+    {
+        return $this->hasOne(Category::class, 'id', 'category_id');
+    }
+
 }
