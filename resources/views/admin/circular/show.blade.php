@@ -16,8 +16,6 @@
                     <h5><strong>Organization Website :</strong> {{  $circulars->organization_website }}</h5>
                     <h5><strong>Aplly link : </strong><a href="{{  $circulars->apply_link }}">click for apply</a></h5>
                     <h5><strong>Vacancy : </strong>{{  $circulars->vacancy }}</h5>
-
-
                 </div>
             </div>
         </div>

@@ -54,7 +54,7 @@ class NewsController extends Controller
             'description'       => trim($request->description),
             'thumbnail'         => $thumbnailname,
             'category_id'       => $request->category_id,
-            'meta_description'  => $request->meta_description,
+            'meta_description'  => trim($request->meta_description),
             'meta_keyword'      => json_encode($request->meta_keyword),
             'end_date'          => $request->end_date
         ]);
@@ -111,7 +111,7 @@ class NewsController extends Controller
             'description'      => trim($request->description),
             'thumbnail'    => $thumbnailname,
             'category_id'          => $request->category_id,
-            'meta_description' => $request->meta_description,
+            'meta_description' => trim($request->meta_description),
             'meta_keyword' => json_encode($request->meta_keyword),
             'end_date'     => $request->end_date,
             'user_id' => Auth::user()->id,

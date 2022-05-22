@@ -8,7 +8,9 @@
                    <h2> {{ $news->title }}</h2>
                 </div>
                 <div class="card-body">
-                    <img style="width: 100%;" src="{{ asset('storage/circular/' . $news->thumbnail) }}" alt="thumbnail">
+                    <img src="{{ asset('storage/news/' .$news->thumbnail)  }}"
+                    style="width: 100px;height:80px" alt="thumbnail">
+
                     <p class="mt-2">{!! $news->description !!}</p>
                     <h5><strong>End Date :</strong> {{  $news->end_date }}</h5>
                 </div>

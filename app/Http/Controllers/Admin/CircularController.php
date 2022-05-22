@@ -46,7 +46,7 @@ class CircularController extends Controller
         $thumbnailname = null;
         if ($request->file('thumbnail')) {
             $thumbnailname = $request->thumbnail->getClientOriginalName();
-            $request->thumbnail->storeAs('circular', $thumbnailname);
+            $request->thumbnail->storeAs('circular', $thumbnailname , 'public');
         }
         $circular_image = $request->file('circular_image');
 
@@ -63,7 +63,7 @@ class CircularController extends Controller
             'apply_link'           => $request->apply_link,
             'vacancy'              => $request->vacancy,
             'meta_title'           => $request->meta_title,
-            'meta_description'     => $request->meta_description,
+            'meta_description'     => trim($request->meta_description),
             'meta_tag'             => json_encode($request->meta_keyword)
         ];
 
@@ -142,7 +142,7 @@ class CircularController extends Controller
             'apply_link'           => $request->apply_link,
             'vacancy'              => $request->vacancy,
             'meta_title'           => $request->meta_title,
-            'meta_description'     => $request->meta_description,
+            'meta_description'     => trim($request->meta_description),
             'meta_tag'             => json_encode($request->meta_keyword)
         ]);
         return redirect()->route('circular.index');

@@ -27,8 +27,10 @@
                                         <td>{{ $key + 1 }}</td>
                                         <td>{{ $circular->title }}</td>
                                         <td>
-                                            <img src="{{ asset('storage/circular/' .$circular->thumbnail)  }}" style="width: 100px;height:80px" alt="thumbnail">
+                                            <img src="{{ asset('storage/circular/' .$circular->thumbnail) }}"
+                                                style="width: 100px;height:80px" alt="thumbnail">
                                         </td>
+                                        <td>
                                         <td>{{ $circular->category_id }}</td>
                                         <td>
                                             <a href="{{ route('circular.show', $circular->id) }}"

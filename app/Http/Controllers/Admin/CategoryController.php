@@ -56,7 +56,7 @@ class CategoryController extends Controller
 
         Category::create([
             'name'             => $request->name,
-            'meta_description' => $request->meta_description,
+            'meta_description' => trim($request->meta_description),
             'slug'             => make_slug($request->name),
             'thumbnail'        => $thumbnailname,
             'meta_keyword'     => json_encode($request->meta_keyword)
@@ -113,7 +113,7 @@ class CategoryController extends Controller
 
         Category::where('id', $id)->update([
             'name'             => $request->name,
-            'meta_description' => $request->meta_description,
+            'meta_description' => trim($request->meta_description),
             'slug'             => make_slug($request->name),
             'thumbnail'        => $thumbnailname,
             'meta_keyword'     => json_encode($request->meta_keyword)

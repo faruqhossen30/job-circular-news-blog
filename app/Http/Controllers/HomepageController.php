@@ -10,9 +10,9 @@ class HomepageController extends Controller
 {
     public function homepage()
     {
-        $circulars = Circular::get();
-        $allnews = News::get();
-        // return $circulars;
+        $circulars = Circular::latest()->paginate();
+        $allnews = News::take(12)->get();
+        // return $allnews;
         return view('frontend.homepage', compact('circulars', 'allnews'));
     }
 }

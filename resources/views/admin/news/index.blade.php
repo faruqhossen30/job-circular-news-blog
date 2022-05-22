@@ -26,7 +26,8 @@
                                         <td>{{ $key + 1 }}</td>
                                         <td>{{ $news->title }}</td>
                                         <td>
-                                            <img src="{{ asset('storage/circular/' .$news->thumbnail)  }}" style="width: 100px;height:80px" alt="thumbnail">
+                                            <img src="{{ asset('storage/news/' .$news->thumbnail)  }}"
+                                            style="width: 100px;height:80px" alt="thumbnail">
                                         </td>
                                         <td>{{ $news->category_id }}</td>
                                         <td>

@@ -1,19 +1,23 @@
 <?php
 
+use App\Http\Controllers\FrontEnd\CategoryController;
+use App\Http\Controllers\FrontEnd\NewsController;
+use App\Http\Controllers\FrontEnd\SearchController;
+use App\Http\Controllers\FrontEnd\SinglecircularController;
+use App\Http\Controllers\FrontEnd\SinglenewsController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomepageController;
+use Illuminate\Support\Facades\Auth;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+
 
 Route::get('/', [HomepageController::class, 'homepage'])->name('homepage');
 
 Auth::routes();
+
+Route::get('circular/{id}',[SinglecircularController::class,'singlecircular'])->name('singlecircular');
+Route::get('news/{id}',[SinglenewsController::class,'singlenews'])->name('singlenews');
+Route::get('category/{id}',[CategoryController::class,'category'])->name('category');
+Route::get('all-news',[CategoryController::class,'latestNews'])->name('latestNews');
+
+Route::get('/search',[SearchController::class,'search'])->name('search');
