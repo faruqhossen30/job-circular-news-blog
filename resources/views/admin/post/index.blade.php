@@ -1,7 +1,8 @@
 @extends('backend.layout.admin-master')
 
-@section('title', 'Post Page');
-
+@section('title')
+    Show Post || Job Circular
+@endsection
 
 @section('content')
     <div class="container mt-3">

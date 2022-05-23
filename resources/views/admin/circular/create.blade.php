@@ -1,6 +1,8 @@
 @extends('admin.layouts.app')
 
-@section('title', 'Add circular ')
+@section('title')
+    Add Circular || Job Circular
+@endsection
 
 @section('content')
     <!-- Main content -->

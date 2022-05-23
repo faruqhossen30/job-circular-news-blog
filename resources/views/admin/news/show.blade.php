@@ -1,5 +1,9 @@
 @extends('admin.layouts.app')
 
+@section('title')
+    Show News || Job Circular
+@endsection
+
 @section('content')
     <div class="container mt-3">
         <div class="col-sm-12">

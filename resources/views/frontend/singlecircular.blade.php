@@ -1,5 +1,10 @@
 @extends('frontend.layouts.app')
 
+@section('title')
+    Job Circular || Job Circular
+@endsection
+
+
 @section('content')
     <div class="container mt-3">
         <div class="row">
@@ -11,6 +16,27 @@
                     <div class="card-body">
                         <img style="width: 100%;" src="{{ asset('storage/circular/' . $circulars->thumbnail) }}"
                             alt="thumbnail">
+                        <ul class="author-area d-flex">
+                            <li><i class="fa-solid fa-user"></i> Najmul</li>
+                            <li><i class="fa-solid fa-archway"></i> {{ $singlecircular->category->name ?? 'No Category' }}
+                            </li>
+                            <li><i class="fa-solid fa-clock"></i>
+                                {{ $singlecircular->category->created_at ?? 'No Time Set' }}</li>
+                            <div class="social-share">
+                                <a href="https://www.facebook.com/sharer/sharer.php?u={{ route('singlecircular', $circulars->id) }}"
+                                    target="_blank"><i style="color: #1877f2" class="fa-brands fa-facebook-f"></i></a>
+                                <a href="https://twitter.com/intent/tweet?url={{ route('singlecircular', $circulars->id) }}"
+                                    target="_blank"><i style="color: #25d366" class="fa-brands fa-twitter"></i></a>
+                                <a href="//pinterest.com/pin/create/link/?url={{ route('singlecircular', $circulars->id) }}"
+                                    target="_blank"><i style="color: #bd081c" class="fa-brands fa-pinterest"></i></a>
+                                <a href="https://www.instagram.com/sharer.php?u={{ route('singlecircular', $circulars->id) }}"
+                                    target="_blank"><i style="color: #c32aa3" class="fa-brands fa-instagram"></i></a>
+                                <a href="whatsapp://send?text={{ route('singlecircular', $circulars->id) }}" target="_blank"><i
+                                        style="color: #25d366" class="fa-brands fa-whatsapp"></i></a>
+                                <a href="https://www.linkedin.com/shareArticle?mini={{ route('singlecircular', $circulars->id) }}"
+                                    target="_blank"><i style="color: #0a66c2" class="fa-brands fa-linkedin-in"></i></a>
+                            </div>
+                        </ul>
                         <p class="mt-2">{!! $circulars->description !!}</p>
 
                         <table class="table table-bordered">
@@ -31,7 +57,8 @@
                                 </tr>
                                 <tr>
                                     <td><strong>Aplly link </strong></td>
-                                    <td><a href="{{ $circulars->apply_link }}" style="text-decoration: none"> : Click for Apply</a></td>
+                                    <td><a href="{{ $circulars->apply_link }}" style="text-decoration: none"> : Click for
+                                            Apply</a></td>
                                 </tr>
                                 <tr>
                                     <td><strong>Vacancy </strong> </td>
@@ -61,7 +88,7 @@
                             </div>
                             <div class="list-group">
                                 @foreach ($categories as $category)
-                                    <a href="{{ route('category', $category->id) }}"
+                                    <a href="{{ route('category', $category->slug) }}"
                                         class="list-group-item list-group-item-action list-group-item-light">{{ $category->name }}</a>
                                 @endforeach
                             </div>

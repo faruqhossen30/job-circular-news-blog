@@ -1,6 +1,8 @@
 @extends('backend.layout.admin-master')
 
-@section('title', 'Update Post')
+@section('title')
+    Update Post || Job Circular
+@endsection
 
 @section('content')
     <!-- Content area -->

@@ -1,6 +1,8 @@
 @extends('admin.layouts.app')
 
-@section('title', 'circular Page');
+@section('title')
+    Show News || Job Circular
+@endsection
 
 @section('content')
     <div class="container mt-3">

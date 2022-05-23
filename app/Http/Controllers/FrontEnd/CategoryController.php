@@ -10,12 +10,15 @@ use Illuminate\Http\Request;
 
 class CategoryController extends Controller
 {
-    public function category($id)
+    public function category($slug)
     {
-        $categories = Category::firstWhere('id', $id);
-        $allnews = Circular::where('category_id', $id)->get();
-        $latestNews = News::all();
-        return view('frontend.categorynews', compact('categories', 'allnews', 'latestNews'));
+        $category = Category::firstWhere('slug', $slug);
+
+        $circulars = Circular::where('category_id', $category->id)->get();
+
+        // return $circulars;
+
+        return view('frontend.categorynews', compact('circulars', 'category'));
     }
 
 

@@ -15,9 +15,9 @@ Route::get('/', [HomepageController::class, 'homepage'])->name('homepage');
 
 Auth::routes();
 
-Route::get('circular/{id}',[SinglecircularController::class,'singlecircular'])->name('singlecircular');
-Route::get('news/{id}',[SinglenewsController::class,'singlenews'])->name('singlenews');
-Route::get('category/{id}',[CategoryController::class,'category'])->name('category');
+Route::get('circular/{slug}',[SinglecircularController::class,'singlecircular'])->name('singlecircular');
+Route::get('news/{slug}',[SinglenewsController::class,'singlenews'])->name('singlenews');
+Route::get('category/{slug}',[CategoryController::class,'category'])->name('category');
 Route::get('all-news',[CategoryController::class,'latestNews'])->name('latestNews');
 
 Route::get('/search',[SearchController::class,'search'])->name('search');

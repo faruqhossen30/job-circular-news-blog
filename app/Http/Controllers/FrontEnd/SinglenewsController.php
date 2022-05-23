@@ -9,9 +9,9 @@ use Illuminate\Http\Request;
 
 class SinglenewsController extends Controller
 {
-    public function singlenews($id)
+    public function singlenews($slug)
     {
-        $allnews = News::firstWhere('id',$id);
+        $allnews = News::with('category','user')->firstWhere('slug',$slug);
         $categories = Category::get();
         return view('frontend.singlenews',compact('allnews','categories'));
     }

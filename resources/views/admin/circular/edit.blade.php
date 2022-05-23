@@ -1,6 +1,8 @@
 @extends('admin.layouts.app')
 
-@section('title', 'Add Category')
+@section('title')
+    Update Circular || Job Circular
+@endsection
 
 @section('content')
     <!-- Main content -->

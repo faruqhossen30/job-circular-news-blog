@@ -33,7 +33,7 @@ class SearchController extends Controller
         if (isset($_GET['type'])) {
             $type = $_GET['type'];
         }
-
+// return $sort;
 
 
         $categories = Category::get();

@@ -22,7 +22,7 @@ $categories = App\Models\Category::get();
                         @foreach ($categories as $category)
                             <li class="nav-item">
                                 <a class="nav-link fw-bold"
-                                    href="{{ route('category', $category->id) }}">{{ $category->name }}</a>
+                                    href="{{ route('category', $category->slug) }}">{{ $category->name }}</a>
                             </li>
                         @endforeach
                         <li class="nav-item">

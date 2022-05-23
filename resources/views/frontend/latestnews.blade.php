@@ -1,5 +1,10 @@
 @extends('frontend.layouts.app')
 
+@section('title')
+    Latest News || Job Circular
+@endsection
+
+
 @section('content')
     <div class="breadcrumb-area">
         <div class="container">
@@ -8,7 +13,7 @@
                     <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
                         <ol class="breadcrumb latestNews">
                             <li><a href="{{ url('/') }}"><i class="fa fa-home"></i></a></li> >
-                            <li aria-current="page">Latest News</li>
+                            <li aria-current="page"> Latest News</li>
                         </ol>
                     </nav>
                 </div>
@@ -57,7 +62,7 @@
                                 <div class="card p-2">
                                     <div class="single-news">
                                         <img src="{{ asset('storage/news/' . $news->thumbnail) }}" alt="thumbnail">
-                                        <a href="{{ route('singlenews', $news->id) }}">{{ $news->title }}</a>
+                                        <a href="{{ route('singlenews', $news->slug) }}">{{ $news->title }}</a>
                                     </div>
                                 </div>
                             </div>

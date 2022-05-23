@@ -17,7 +17,7 @@ class NewsController extends Controller
      */
     public function index()
     {
-        $allnews = News::get();
+        $allnews = News::latest()->get();
         return view('admin.news.index', compact('allnews'));
     }
 
@@ -56,7 +56,8 @@ class NewsController extends Controller
             'category_id'       => $request->category_id,
             'meta_description'  => trim($request->meta_description),
             'meta_keyword'      => json_encode($request->meta_keyword),
-            'end_date'          => $request->end_date
+            'end_date'          => $request->end_date,
+            'user_id'           =>Auth::user()->id
         ]);
 
         return redirect()->route('news.index');

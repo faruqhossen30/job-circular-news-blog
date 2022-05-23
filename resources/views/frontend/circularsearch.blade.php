@@ -1,5 +1,10 @@
 @extends('frontend.layouts.app')
 
+@section('title')
+    Search Job || Job Circular
+@endsection
+
+
 @section('content')
     <section>
         <div class="container mt-2 mb-4">
@@ -33,9 +38,9 @@
                             <div class="list-group mx-0">
                                 @foreach ($categories as $category)
                                     <label class="list-group-item d-flex gap-2">
-                                        <input name="category[]" value="{{ $category->id }}" onchange="this.form.submit()"
+                                        <input name="category[]" value="{{ $category->slug }}" onchange="this.form.submit()"
                                             class="form-check-input flex-shrink-0" type="checkbox"
-                                            @if (isset($_GET['category']) && in_array($category->id, $_GET['category'])) checked @endif \>
+                                            @if (isset($_GET['category']) && in_array($category->slug, $_GET['category'])) checked @endif \>
                                         <span>
                                             {{ $category->name }}
                                         </span>
@@ -88,7 +93,7 @@
                                             <img src="{{ asset('storage/news/' . $news->thumbnail) }}"
                                                 class="card-img-top">
                                             <div class="card-body">
-                                                <a href="{{ route('singlenews', $news->id) }}"
+                                                <a href="{{ route('singlenews', $news->slug) }}"
                                                     class="card-text text-decoration-none fw-bold text-secondary">
                                                     {{ $news->title }}
                                                 </a>

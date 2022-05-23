@@ -9,9 +9,9 @@ use Illuminate\Http\Request;
 
 class SinglecircularController extends Controller
 {
-  public function singlecircular($id)
+  public function singlecircular($slug)
   {
-      $circulars = Circular::firstWhere('id',$id);
+      $circulars = Circular::firstWhere('slug',$slug);
       $categories = Category::get();
       return view('frontend.singlecircular',compact('circulars','categories'));
   }

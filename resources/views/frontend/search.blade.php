@@ -1,41 +1,48 @@
 @extends('frontend.layouts.app')
 
+@section('title')
+    Search || Job Circular
+@endsection
+
+
 @section('content')
     <section>
         <div class="container mt-2 mb-4">
             <form action="" method="get">
-                <div class="row">
-                    <div class="row multiple-search-area">
-                        <div class="col-xl-8 offset-xl-2 offset-lg-2 col-lg-8">
-                            <div class="breadcrumb-search-bar">
-                                <form action="#" class="d-flex align-items-center justify-content-center">
-                                    <div class="input-group input-group-sm">
-                                        <span id="inputGroup-sizing-sm">
-                                            <select name="type" class="form-select" id="search-bar">
-                                                <option value="circular">Circular</option>
-                                                <option value="news">News</option>
-                                            </select>
-                                        </span>
+                <div class="row multiple-search-area">
+                    <div class="col-xl-8 offset-xl-2 offset-lg-2 col-lg-8">
+                        <div class="breadcrumb-search-bar">
+                            <form action="#" class="d-flex align-items-center justify-content-center">
+                                <div class="input-group input-group-sm">
+                                    <span id="inputGroup-sizing-sm">
+                                        <select name="type" class="form-select" id="search-bar">
+                                            <option @if (isset($_GET['type']) && $_GET['type'] == 'circular') selected @endif value="circular">
+                                                Circular</option>
+                                            <option @if (isset($_GET['type']) && $_GET['type'] == 'news') selected @endif value="news">News
+                                            </option>
+                                        </select>
+                                    </span>
 
-                                        <input type="search" name="keyword" class="form-control"
-                                            aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
-                                        <button class="btn-secondary">Search</button>
-                                    </div>
-                                </form>
-                            </div>
+                                    <input type="search" name="keyword" class="form-control"
+                                        aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                                    <button class="btn-secondary">Search</button>
+                                </div>
+                            </form>
                         </div>
                     </div>
+                </div>
+                <div class="row">
                     <div class="col-lg-3 d-none d-lg-block bg-light mt-3">
-                        <div class="card mb-4 ">
+                        <div class="card mb-4 " style="position: sticky; top:80px">
                             <div class="card-header ">
                                 <h6 class="text-uppercase fw-bold text-center mt-2 text-secondary">ফিল্টার : </h6>
                             </div>
                             <div class="list-group mx-0">
                                 @foreach ($categories as $category)
                                     <label class="list-group-item d-flex gap-2">
-                                        <input name="category[]" value="{{ $category->id }}" onchange="this.form.submit()"
+                                        <input name="category[]" value="{{ $category->slug }}" onchange="this.form.submit()"
                                             class="form-check-input flex-shrink-0" type="checkbox"
-                                            @if (isset($_GET['category']) && in_array($category->id, $_GET['category'])) checked @endif \>
+                                            @if (isset($_GET['category']) && in_array($category->slug, $_GET['category'])) checked @endif \>
                                         <span>
                                             {{ $category->name }}
                                         </span>
@@ -57,9 +64,9 @@
                                         </label>
                                         <select name="sort" class="form-select" onchange="this.form.submit()">
                                             <option value="" disabled>Select</option>
-                                            <option @if (isset($_GET['sort']) && $_GET['sort'] == 'asc') selected @endif value="asc">Latest
+                                            <option @if (isset($_GET['sort']) && $_GET['sort'] == 'desc') selected @endif value="desc">Latest
                                             </option>
-                                            <option @if (isset($_GET['sort']) && $_GET['sort'] == 'desc') selected @endif value="desc">Old
+                                            <option @if (isset($_GET['sort']) && $_GET['sort'] == 'asc') selected @endif value="asc">Old
                                             </option>
                                         </select>
                                     </div>
@@ -88,7 +95,7 @@
                                             <img src="{{ asset('storage/news/' . $news->thumbnail) }}"
                                                 class="card-img-top">
                                             <div class="card-body">
-                                                <a href="{{ route('singlenews', $news->id) }}"
+                                                <a href="{{ route('singlenews', $news->slug) }}"
                                                     class="card-text text-decoration-none fw-bold text-secondary">
                                                     {{ $news->title }}
                                                 </a>
