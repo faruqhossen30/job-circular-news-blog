@@ -11,8 +11,8 @@ class SinglenewsController extends Controller
 {
     public function singlenews($slug)
     {
-        $allnews = News::with('category','user')->firstWhere('slug',$slug);
+        $news = News::with('category','user')->firstWhere('slug',$slug);
         $categories = Category::get();
-        return view('frontend.singlenews',compact('allnews','categories'));
+        return view('frontend.singlenews',compact('news','categories'));
     }
 }

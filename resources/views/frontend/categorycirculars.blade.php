@@ -1,7 +1,7 @@
 @extends('frontend.layouts.app')
 
 @section('title')
-    Home || Job Circular
+    Category Circular || Job Circular
 @endsection
 
 
@@ -64,13 +64,12 @@
                             </div>
                         </form>
                         <div class="row mt-3">
-                            @foreach ($circulars as $news)
+                            @foreach ($circulars as $cirlular)
                                 <div class="col-md-4">
                                     <div class="card p-2">
                                         <div class="single-news">
-                                            {{-- <img src="{{ asset('frontend') }}/img/tv.jpg" style="width: 100%" alt=""> --}}
-                                            <img src="{{ asset('storage/circular/' . $news->thumbnail) }}" alt="">
-                                            <a href="{{ route('singlenews', $news->slug) }}">{{ $news->title }}</a>
+                                            <img src="{{ asset('storage/circular/' . $cirlular->thumbnail) }}" alt="">
+                                            <a href="{{ route('singlecircular', $cirlular->slug) }}">{{ $cirlular->title }}</a>
                                         </div>
                                     </div>
                                 </div>

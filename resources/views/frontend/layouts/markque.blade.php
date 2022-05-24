@@ -13,7 +13,7 @@
                                     <!-- End Page-->
                                     <span class="ticker">
                                         @foreach ($circulars as $circular)
-                                            <a href="{{ route('singlecircular', $circular->id) }}"
+                                            <a href="{{ route('singlecircular', $circular->slug) }}"
                                                 class="text-decoration-none fw-bold text-secondary">
                                                 {{ $circular->title }}
                                             </a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

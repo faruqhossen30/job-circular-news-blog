@@ -1,7 +1,7 @@
 @extends('admin.layouts.app')
 
 @section('title')
-    Show Categroy || Job Circular
+    All Categroy || Job Circular
 @endsection
 
 @section('content')

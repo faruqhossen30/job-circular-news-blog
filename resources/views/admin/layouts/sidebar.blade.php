@@ -41,45 +41,56 @@
         <!-- Main navigation -->
         <div class="card card-sidebar-mobile">
             <ul class="nav nav-sidebar" data-nav-type="accordion">
-                <li class="nav-item">
-                    <a href="{{ route('admin.dashboard') }}" class="nav-link active">
+                <li class="nav-item @if (request()->routeIs('admin.dashboard')) nav-item-expanded nav-item-open @endif ">
+                    <a href="{{ route('admin.dashboard') }}" class="nav-link">
                         <i class="icon-home4"></i>
                         <span>
                             Dashboard
                         </span>
                     </a>
                 </li>
-                <li class="nav-item nav-item-submenu">
+                <li
+                    class="nav-item nav-item-submenu  @if (request()->routeIs('circular.index', 'circular.create')) nav-item-expanded nav-item-open @endif ">
                     <a href="#" class="nav-link"><i class="icon-copy"></i> <span>Circular</span></a>
                     <ul class="nav nav-group-sub" data-submenu-title="Layouts">
-                        <li class="nav-item"><a href="{{ route('circular.index') }}" class="nav-link">All
+
+                        <li class="nav-item"><a href="{{ route('circular.index') }}"
+                                class="nav-link {{ request()->routeIs('circular.index') ? 'active' : '' }} ">All
                                 Circular</a></li>
-                        <li class="nav-item"><a href="{{ route('circular.create') }}" class="nav-link">Add
+
+                        <li class="nav-item"><a href="{{ route('circular.create') }}"
+                                class="nav-link {{ request()->routeIs('circular.create') ? 'active' : '' }} ">Add
                                 Circular</a></li>
 
                     </ul>
                 </li>
-                <li class="nav-item nav-item-submenu">
+                <li
+                    class="nav-item nav-item-submenu @if (request()->routeIs('category.index', 'category.create')) nav-item-expanded nav-item-open @endif">
                     <a href="#" class="nav-link"><i class="icon-copy"></i> <span>Category</span></a>
                     <ul class="nav nav-group-sub" data-submenu-title="Layouts">
-                        <li class="nav-item"><a href="{{ route('category.index') }}" class="nav-link">All
+                        <li class="nav-item"><a href="{{ route('category.index') }}"
+                                class="nav-link {{ request()->routeIs('category.index') ? 'active' : '' }}">All
                                 Category</a></li>
-                        <li class="nav-item"><a href="{{ route('category.create') }}" class="nav-link">Add
+                        <li class="nav-item"><a href="{{ route('category.create') }}"
+                                class="nav-link {{ request()->routeIs('category.create') ? 'active' : '' }}">Add
                                 Category</a></li>
                     </ul>
                 </li>
-                <li class="nav-item nav-item-submenu">
+                <li
+                    class="nav-item nav-item-submenu  @if (request()->routeIs('news.index', 'news.create')) nav-item-expanded nav-item-open @endif">
                     <a href="#" class="nav-link"><i class="icon-copy"></i> <span>News</span></a>
                     <ul class="nav nav-group-sub" data-submenu-title="Layouts">
-                        <li class="nav-item"><a href="{{ route('news.index') }}" class="nav-link">All
+                        <li class="nav-item"><a href="{{ route('news.index') }}"
+                                class="nav-link {{ request()->routeIs('news.index') ? 'active' : '' }} ">All
                                 News</a></li>
-                        <li class="nav-item"><a href="{{ route('news.create') }}" class="nav-link">Add
+                        <li class="nav-item"><a href="{{ route('news.create') }}"
+                                class="nav-link {{ request()->routeIs('news.create') ? 'active' : '' }} ">Add
                                 News</a></li>
                     </ul>
                 </li>
 
                 <li class="nav-item logout-hover">
-                    <a class="nav-link"  href="{{ route('logout') }}" onclick="event.preventDefault();
+                    <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();"> <i
                             class="icon-switch2"></i>
                         {{ __('Logout') }}

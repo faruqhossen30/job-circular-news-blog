@@ -4,39 +4,38 @@
     News || Job Circular
 @endsection
 
-
 @section('content')
     <div class="container mt-3">
         <div class="row">
             <div class="col-sm-8">
                 <div class="card">
                     <div class="card-header">
-                        <h4> {{ $allnews->title }}</h4>
+                        <h4> {{ $news->title }}</h4>
                     </div>
                     <div class="card-body">
-                        <img style="width: 100%;" src="{{ asset('storage/news/' . $allnews->thumbnail) }}"
+                        <img style="width: 100%;" src="{{ asset('storage/news/' . $news->thumbnail) }}"
                             alt="thumbnail">
                         <ul class="author-area d-flex">
-                            <li><i class="fa-solid fa-user"></i> {{ $allnews->user->name ?? 'No User' }}</li>
-                            <li><i class="fa-solid fa-archway"></i> {{ $allnews->category->name ?? 'No Category' }}</li>
+                            <li><i class="fa-solid fa-user"></i> {{ $news->user->name ?? 'No User' }}</li>
+                            <li><i class="fa-solid fa-archway"></i> {{ $news->category->name ?? 'No Category' }}</li>
                             <li><i class="fa-solid fa-clock"></i>
-                                {{ $allnews->category->created_at->format('d-M-Y') ?? 'No Time Set' }}</li>
+                                {{ $news->category->created_at->format('d-M-Y') ?? 'No Time Set' }}</li>
                             <div class="social-share">
-                                <a href="https://www.facebook.com/sharer/sharer.php?u={{ route('singlenews', $allnews->id) }}"
+                                <a href="https://www.facebook.com/sharer/sharer.php?u={{ route('singlenews', $news->id) }}"
                                     target="_blank"><i style="color: #1877f2" class="fa-brands fa-facebook-f"></i></a>
-                                <a href="https://twitter.com/intent/tweet?url={{ route('singlenews', $allnews->id) }}"
+                                <a href="https://twitter.com/intent/tweet?url={{ route('singlenews', $news->id) }}"
                                     target="_blank"><i style="color: #1da1f2" class="fa-brands fa-twitter"></i></a>
-                                <a href="//pinterest.com/pin/create/link/?url={{ route('singlenews', $allnews->id) }}"
+                                <a href="//pinterest.com/pin/create/link/?url={{ route('singlenews', $news->id) }}"
                                     target="_blank"><i style="color: #bd081c" class="fa-brands fa-pinterest"></i></a>
-                                <a href="https://www.instagram.com/sharer.php?u={{ route('singlenews', $allnews->id) }}"
+                                <a href="https://www.instagram.com/sharer.php?u={{ route('singlenews', $news->id) }}"
                                     target="_blank"><i style="color: #c32aa3" class="fa-brands fa-instagram"></i></a>
-                                <a href="whatsapp://send?text={{ route('singlenews', $allnews->id) }}" target="_blank"><i
+                                <a href="whatsapp://send?text={{ route('singlenews', $news->id) }}" target="_blank"><i
                                         style="color: #25d366" class="fa-brands fa-whatsapp"></i></a>
-                                <a href="https://www.linkedin.com/shareArticle?mini={{ route('singlenews', $allnews->id) }}"
+                                <a href="https://www.linkedin.com/shareArticle?mini={{ route('singlenews', $news->id) }}"
                                     target="_blank"><i style="color: #0a66c2" class="fa-brands fa-linkedin-in"></i></a>
                             </div>
                         </ul>
-                        <p>{!! $allnews->description !!}</p>
+                        <p>{!! $news->description !!}</p>
                     </div>
 
                 </div>

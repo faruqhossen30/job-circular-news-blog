@@ -18,7 +18,7 @@ class CategoryController extends Controller
 
         // return $circulars;
 
-        return view('frontend.categorynews', compact('circulars', 'category'));
+        return view('frontend.categorycirculars', compact('circulars', 'category'));
     }
 
 

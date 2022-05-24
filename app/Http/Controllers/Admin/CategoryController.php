@@ -5,8 +5,6 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use Illuminate\Http\Request;
-
-use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
 
 class CategoryController extends Controller
@@ -136,7 +134,6 @@ class CategoryController extends Controller
         // return storage_path('app/catagories/'.$category->thumbnail);
 
         Category::where('id', $id)->delete();
-
 
         return redirect()->route('category.index');
     }

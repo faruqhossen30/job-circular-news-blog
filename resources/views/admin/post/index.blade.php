@@ -1,7 +1,7 @@
 @extends('backend.layout.admin-master')
 
 @section('title')
-    Show Post || Job Circular
+    All Post || Job Circular
 @endsection
 
 @section('content')
