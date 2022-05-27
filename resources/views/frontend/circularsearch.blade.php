@@ -108,7 +108,7 @@
                         @else
                             <div class="card mt-3">
                                 <div class="d-flex justify-content-center no-post-found">
-                                    <strong>No Post Found in "{{ $_GET['keyword'] }} "</strong>
+                                    <strong>No Post Found in "{{ $_GET['keyword'] ?? '' }} "</strong>
                                 </div>
                             </div>
                         @endif

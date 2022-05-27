@@ -27,7 +27,7 @@ $categories = App\Models\Category::get();
                         @endforeach
                         <li class="nav-item">
                             <a class="nav-link fw-bold"
-                                href="{{ url('all-news') }}">Latest News</a>
+                                href="{{ url('all-news') }}">আপডেট/খবর</a>
                         </li>
 
                     </ul>
@@ -35,7 +35,7 @@ $categories = App\Models\Category::get();
                         <input class="form-control" name="keyword" type="search" placeholder="Search" aria-label="Search">
                         <i class="fa fa-search"></i>
                     </form> --}}
-                    <a href="{{ route('search') }}" class="btn btn-primary">Search</a>
+                    <a href="{{ route('search') }}" class="btn btn-secondary btn-sm">Search</a>
                 </div>
             </div>
         </nav>

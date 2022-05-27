@@ -1,10 +1,10 @@
 <?php
 
-use App\Http\Controllers\FrontEnd\CategoryController;
-use App\Http\Controllers\FrontEnd\NewsController;
-use App\Http\Controllers\FrontEnd\SearchController;
-use App\Http\Controllers\FrontEnd\SinglecircularController;
-use App\Http\Controllers\FrontEnd\SinglenewsController;
+use App\Http\Controllers\Frontend\CategoryController;
+use App\Http\Controllers\Frontend\NewsController;
+use App\Http\Controllers\Frontend\SearchController;
+use App\Http\Controllers\Frontend\SinglecircularController;
+use App\Http\Controllers\Frontend\SinglenewsController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomepageController;
 use Illuminate\Support\Facades\Auth;

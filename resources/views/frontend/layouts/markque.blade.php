@@ -6,7 +6,7 @@
                     <tbody>
                         <tr>
                             <td class="bg-light border p-1 fw-bold text-secondary" style="width: 90px; font-size: 18px;">
-                                সর্বশেষ : </td>
+                                চাকরি : </td>
                             <td class="border py-2">
                                 <marquee direction="left" onmouseout="this.start()" onmouseover="this.stop()"
                                     scrolldelay="1" scrollamount="3">
