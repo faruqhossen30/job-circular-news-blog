@@ -33,7 +33,6 @@ class SearchController extends Controller
         if (isset($_GET['type'])) {
             $type = $_GET['type'];
         }
-// return $sort;
 
 
         $categories = Category::get();
@@ -53,8 +52,7 @@ class SearchController extends Controller
 
             return view('frontend.search', compact('allnews', 'categories', 'circulars'));
         } else {
-            // return "your search circular";
-            $allnews = News::when($category, function ($query, $category) {
+            $allnews = Circular::when($category, function ($query, $category) {
                 return $query->whereIn('category_id', $category);
             })
                 ->when($keyword, function ($query, $keyword) {

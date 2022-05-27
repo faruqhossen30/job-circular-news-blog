@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Auth;
 
 Route::get('/', [HomepageController::class, 'homepage'])->name('homepage');
 
-Auth::routes();
+Auth::routes(['register' => false]);
 
 Route::get('circular/{slug}',[SinglecircularController::class,'singlecircular'])->name('singlecircular');
 Route::get('news/{slug}',[SinglenewsController::class,'singlenews'])->name('singlenews');
