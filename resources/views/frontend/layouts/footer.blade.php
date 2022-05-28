@@ -4,12 +4,12 @@
         <p class="fw-bold">© 2022 Company, Inc. All rights reserved.</p>
         <ul class="list-unstyled d-flex footericon">
           <li class="ms-3">
-            <a class="link-dark" href="#">
+            <a class="link-dark" href="https://www.facebook.com/jobcircularbd.net">
               <i class="fab fa-facebook"></i>
             </a>
           </li>
           <li class="ms-3">
-            <a class="link-dark" href="#">
+            <a class="link-dark" href="https://www.youtube.com/channel/UCSN9XkEhoBLn-CqEkCWtcSw">
               <i class="fab fa-youtube"></i>
             </a>
           </li>
