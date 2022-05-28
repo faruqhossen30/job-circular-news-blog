@@ -7,6 +7,7 @@ use App\Models\Category;
 use App\Models\News;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Image;
 
 class NewsController extends Controller
 {
@@ -40,19 +41,30 @@ class NewsController extends Controller
      */
     public function store(Request $request)
     {
-        // return $request->all();
-
-        $thumbnailname = null;
+        $photoname = null;
         if ($request->file('thumbnail')) {
-            $thumbnailname = $request->thumbnail->getClientOriginalName();
-            $request->thumbnail->storeAs('news', $thumbnailname, 'public');
+            $extension = $request->thumbnail->getClientOriginalExtension();
+            $name = hexdec(uniqid());
+            $photoname = $name.'.'.$extension;
+            // $request->thumbnail->storeAs('news', $thumbnailname, 'public');
+            $full = Image::make($request->file('thumbnail'))->save(storage_path('app/public/news/full/' . $photoname));
+            $medium = Image::make($request->file('thumbnail'))->resize(
+                300, null, function ($constraint) {
+                    $constraint->aspectRatio();
+                }
+            )->save(storage_path('app/public/news/mediam/' . $photoname));
+            $small = Image::make($request->file('thumbnail'))->resize(
+                150, null, function ($constraint) {
+                    $constraint->aspectRatio();
+                }
+            )->save(storage_path('app/public/news/small/' . $photoname));
         }
 
         News::create([
             'title'             => $request->title,
             'slug'              => make_slug($request->title),
             'description'       => trim($request->description),
-            'thumbnail'         => $thumbnailname,
+            'thumbnail'         => $photoname,
             'category_id'       => $request->category_id,
             'meta_description'  => trim($request->meta_description),
             'meta_keyword'      => json_encode($request->meta_keyword),
@@ -100,22 +112,35 @@ class NewsController extends Controller
     {
         // return $request->all();
 
-        $thumbnailname = null;
+        $photoname = null;
         if ($request->file('thumbnail')) {
-            $thumbnailname = $request->thumbnail->getClientOriginalName();
-            $request->thumbnail->storeAs('news', $thumbnailname, 'public');
+            $extension = $request->thumbnail->getClientOriginalExtension();
+            $name = hexdec(uniqid());
+            $photoname = $name.'.'.$extension;
+            // $request->thumbnail->storeAs('news', $thumbnailname, 'public');
+            $full = Image::make($request->file('thumbnail'))->save(storage_path('app/public/news/full/' . $photoname));
+            $medium = Image::make($request->file('thumbnail'))->resize(
+                300, null, function ($constraint) {
+                    $constraint->aspectRatio();
+                }
+            )->save(storage_path('app/public/news/mediam/' . $photoname));
+            $small = Image::make($request->file('thumbnail'))->resize(
+                150, null, function ($constraint) {
+                    $constraint->aspectRatio();
+                }
+            )->save(storage_path('app/public/news/small/' . $photoname));
         }
 
         News::where('id', $id)->update([
-            'title'        => $request->title,
-            'slug'         => make_slug($request->title),
+            'title'            => $request->title,
+            'slug'             => make_slug($request->title),
             'description'      => trim($request->description),
-            'thumbnail'    => $thumbnailname,
-            'category_id'          => $request->category_id,
+            'thumbnail'        => $photoname,
+            'category_id'      => $request->category_id,
             'meta_description' => trim($request->meta_description),
-            'meta_keyword' => json_encode($request->meta_keyword),
-            'end_date'     => $request->end_date,
-            'user_id' => Auth::user()->id,
+            'meta_keyword'     => json_encode($request->meta_keyword),
+            'end_date'         => $request->end_date,
+            'user_id'          => Auth::user()->id,
         ]);
 
         return redirect()->route('news.index');

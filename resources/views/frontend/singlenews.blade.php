@@ -19,7 +19,7 @@
                             <li><i class="fa-solid fa-user"></i> {{ $news->user->name ?? 'No User' }}</li>
                             <li><i class="fa-solid fa-archway"></i> {{ $news->category->name ?? 'No Category' }}</li>
                             <li><i class="fa-solid fa-clock"></i>
-                                {{ $news->category->created_at->format('d-M-Y') ?? 'No Time Set' }}</li>
+                                {{ $news->created_at->format('d-M-Y') ?? 'No Time Set' }}</li>
                             <div class="social-share">
                                 <a href="https://www.facebook.com/sharer/sharer.php?u={{ route('singlenews', $news->id) }}"
                                     target="_blank"><i style="color: #1877f2" class="fa-brands fa-facebook-f"></i></a>

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Circular;
 use Illuminate\Http\Request;
+use Image;
 
 class CircularController extends Controller
 {
@@ -43,18 +44,32 @@ class CircularController extends Controller
     {
         // return $request->all();
 
-        $thumbnailname = null;
+        $photoname = null;
         if ($request->file('thumbnail')) {
-            $thumbnailname = $request->thumbnail->getClientOriginalName();
-            $request->thumbnail->storeAs('circular', $thumbnailname , 'public');
+            $extension = $request->thumbnail->getClientOriginalExtension();
+            $name = hexdec(uniqid());
+            $photoname = $name.'.'.$extension;
+            // $request->thumbnail->storeAs('news', $thumbnailname, 'public');
+            $full = Image::make($request->file('thumbnail'))->save(storage_path('app/public/circular/full/' . $photoname));
+            $medium = Image::make($request->file('thumbnail'))->resize(
+                300, null, function ($constraint) {
+                    $constraint->aspectRatio();
+                }
+            )->save(storage_path('app/public/circular/mediam/' . $photoname));
+            $small = Image::make($request->file('thumbnail'))->resize(
+                150, null, function ($constraint) {
+                    $constraint->aspectRatio();
+                }
+            )->save(storage_path('app/public/circular/small/' . $photoname));
         }
+
         $circular_image = $request->file('circular_image');
 
         $data = [
             'title'                => $request->title,
             'slug'                 => make_slug($request->title),
             'description'          => trim($request->description),
-            'thumbnail'            => $thumbnailname,
+            'thumbnail'            => $photoname,
             'category_id'          => $request->category_id,
             'start_date'           => $request->start_date,
             'end_date'             => $request->end_date,
@@ -122,11 +137,25 @@ class CircularController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $thumbnailname = null;
+        $photoname = null;
         if ($request->file('thumbnail')) {
-            $thumbnailname = $request->thumbnail->getClientOriginalName();
-            $request->thumbnail->storeAs('circular', $thumbnailname);
+            $extension = $request->thumbnail->getClientOriginalExtension();
+            $name = hexdec(uniqid());
+            $photoname = $name.'.'.$extension;
+            // $request->thumbnail->storeAs('news', $thumbnailname, 'public');
+            $full = Image::make($request->file('thumbnail'))->save(storage_path('app/public/circular/full/' . $photoname));
+            $medium = Image::make($request->file('thumbnail'))->resize(
+                300, null, function ($constraint) {
+                    $constraint->aspectRatio();
+                }
+            )->save(storage_path('app/public/circular/mediam/' . $photoname));
+            $small = Image::make($request->file('thumbnail'))->resize(
+                150, null, function ($constraint) {
+                    $constraint->aspectRatio();
+                }
+            )->save(storage_path('app/public/circular/small/' . $photoname));
         }
+
         $circular_image = $request->file('circular_image');
 
         Circular::where('id', $id)->update([
