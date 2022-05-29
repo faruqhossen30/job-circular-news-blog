@@ -11,10 +11,10 @@
             <div class="col-sm-8">
                 <div class="card">
                     <div class="card-header">
-                        <h3> {{ $circulars->title }}</h3>
+                        <h3> {{ $circular->title }}</h3>
                     </div>
                     <div class="card-body">
-                        <img style="width: 100%;" src="{{ asset('storage/circular/' . $circulars->thumbnail) }}"
+                        <img style="width: 100%;" src="{{asset('storage/circular/medium/'.$circular->thumbnail)}}"
                             alt="thumbnail">
                         <ul class="author-area d-flex">
                             <li><i class="fa-solid fa-user"></i> Najmul</li>
@@ -23,23 +23,23 @@
                             <li><i class="fa-solid fa-clock"></i>
                                 {{ $singlecircular->category->created_at ?? 'No Time Set' }}</li>
                             <div class="social-share">
-                                <a href="https://www.facebook.com/sharer/sharer.php?u={{ route('singlecircular', $circulars->id) }}"
+                                <a href="https://www.facebook.com/sharer/sharer.php?u={{ route('singlecircular', $circular->id) }}"
                                     target="_blank"><i style="color: #1877f2" class="fa-brands fa-facebook-f"></i></a>
-                                <a href="https://twitter.com/intent/tweet?url={{ route('singlecircular', $circulars->id) }}"
+                                <a href="https://twitter.com/intent/tweet?url={{ route('singlecircular', $circular->id) }}"
                                     target="_blank"><i style="color: #25d366" class="fa-brands fa-twitter"></i></a>
-                                <a href="//pinterest.com/pin/create/link/?url={{ route('singlecircular', $circulars->id) }}"
+                                <a href="//pinterest.com/pin/create/link/?url={{ route('singlecircular', $circular->id) }}"
                                     target="_blank"><i style="color: #bd081c" class="fa-brands fa-pinterest"></i></a>
-                                <a href="https://www.instagram.com/sharer.php?u={{ route('singlecircular', $circulars->id) }}"
+                                <a href="https://www.instagram.com/sharer.php?u={{ route('singlecircular', $circular->id) }}"
                                     target="_blank"><i style="color: #c32aa3" class="fa-brands fa-instagram"></i></a>
-                                <a href="whatsapp://send?text={{ route('singlecircular', $circulars->id) }}" target="_blank"><i
+                                <a href="whatsapp://send?text={{ route('singlecircular', $circular->id) }}" target="_blank"><i
                                         style="color: #25d366" class="fa-brands fa-whatsapp"></i></a>
-                                <a href="https://www.linkedin.com/shareArticle?mini={{ route('singlecircular', $circulars->id) }}"
+                                <a href="https://www.linkedin.com/shareArticle?mini={{ route('singlecircular', $circular->id) }}"
                                     target="_blank"><i style="color: #0a66c2" class="fa-brands fa-linkedin-in"></i></a>
                             </div>
                         </ul>
-                        <p class="mt-2">{!! $circulars->description !!}</p>
+                        {!! $circular->description !!}
 
-                        <table class="table table-bordered">
+                        <table class="table table-bordered my-2">
                             <thead>
                                 <tr>
                                     <th scope="col">Title</th>
@@ -49,28 +49,28 @@
                             <tbody>
                                 <tr>
                                     <td><strong>Organization name :</strong></td>
-                                    <td> : {{ $circulars->organization_name }}</td>
+                                    <td> : {{ $circular->organization_name }}</td>
                                 </tr>
                                 <tr>
                                     <td><strong>Organization Website :</strong></td>
-                                    <td> : {{ $circulars->organization_website }}</td>
+                                    <td> : {{ $circular->organization_website }}</td>
                                 </tr>
                                 <tr>
                                     <td><strong>Aplly link </strong></td>
-                                    <td><a href="{{ $circulars->apply_link }}" style="text-decoration: none"> : Click for
+                                    <td><a href="{{ $circular->apply_link }}" style="text-decoration: none"> : Click for
                                             Apply</a></td>
                                 </tr>
                                 <tr>
                                     <td><strong>Vacancy </strong> </td>
-                                    <td> : {{ $circulars->vacancy }}</td>
+                                    <td> : {{ $circular->vacancy }}</td>
                                 </tr>
                                 <tr>
                                     <td><strong>Start Date </strong></td>
-                                    <td> : {{ $circulars->start_date->format('d M Y') }}</td>
+                                    <td> : {{ $circular->start_date->format('d M Y') }}</td>
                                 </tr>
                                 <tr>
                                     <td><strong>End Date </strong></td>
-                                    <td> : {{ $circulars->end_date->format('d M Y') }}</td>
+                                    <td> : {{ $circular->end_date->format('d M Y') }}</td>
                                 </tr>
                             </tbody>
                         </table>

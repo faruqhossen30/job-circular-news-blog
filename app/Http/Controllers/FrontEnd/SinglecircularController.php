@@ -11,8 +11,8 @@ class SinglecircularController extends Controller
 {
   public function singlecircular($slug)
   {
-      $circulars = Circular::firstWhere('slug',$slug);
+      $circular = Circular::firstWhere('slug',$slug);
       $categories = Category::get();
-      return view('frontend.singlecircular',compact('circulars','categories'));
+      return view('frontend.singlecircular',compact('circular','categories'));
   }
 }

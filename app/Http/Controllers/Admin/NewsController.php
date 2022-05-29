@@ -52,7 +52,7 @@ class NewsController extends Controller
                 300, null, function ($constraint) {
                     $constraint->aspectRatio();
                 }
-            )->save(storage_path('app/public/news/mediam/' . $photoname));
+            )->save(storage_path('app/public/news/medium/' . $photoname));
             $small = Image::make($request->file('thumbnail'))->resize(
                 150, null, function ($constraint) {
                     $constraint->aspectRatio();
@@ -63,13 +63,13 @@ class NewsController extends Controller
         News::create([
             'title'             => $request->title,
             'slug'              => make_slug($request->title),
-            'description'       => trim($request->description),
+            'description'       => $request->description,
             'thumbnail'         => $photoname,
             'category_id'       => $request->category_id,
             'meta_description'  => trim($request->meta_description),
             'meta_keyword'      => json_encode($request->meta_keyword),
             'end_date'          => $request->end_date,
-            'user_id'           =>Auth::user()->id
+            'user_id'           => Auth::user()->id
         ]);
 
         return redirect()->route('news.index');
@@ -123,7 +123,7 @@ class NewsController extends Controller
                 300, null, function ($constraint) {
                     $constraint->aspectRatio();
                 }
-            )->save(storage_path('app/public/news/mediam/' . $photoname));
+            )->save(storage_path('app/public/news/medium/' . $photoname));
             $small = Image::make($request->file('thumbnail'))->resize(
                 150, null, function ($constraint) {
                     $constraint->aspectRatio();
@@ -134,10 +134,10 @@ class NewsController extends Controller
         News::where('id', $id)->update([
             'title'            => $request->title,
             'slug'             => make_slug($request->title),
-            'description'      => trim($request->description),
+            'description'      => $request->description,
             'thumbnail'        => $photoname,
             'category_id'      => $request->category_id,
-            'meta_description' => trim($request->meta_description),
+            'meta_description' => $request->meta_description,
             'meta_keyword'     => json_encode($request->meta_keyword),
             'end_date'         => $request->end_date,
             'user_id'          => Auth::user()->id,

@@ -55,7 +55,7 @@ class CircularController extends Controller
                 300, null, function ($constraint) {
                     $constraint->aspectRatio();
                 }
-            )->save(storage_path('app/public/circular/mediam/' . $photoname));
+            )->save(storage_path('app/public/circular/medium/' . $photoname));
             $small = Image::make($request->file('thumbnail'))->resize(
                 150, null, function ($constraint) {
                     $constraint->aspectRatio();
@@ -68,7 +68,7 @@ class CircularController extends Controller
         $data = [
             'title'                => $request->title,
             'slug'                 => make_slug($request->title),
-            'description'          => trim($request->description),
+            'description'          => $request->description,
             'thumbnail'            => $photoname,
             'category_id'          => $request->category_id,
             'start_date'           => $request->start_date,
@@ -78,7 +78,7 @@ class CircularController extends Controller
             'apply_link'           => $request->apply_link,
             'vacancy'              => $request->vacancy,
             'meta_title'           => $request->meta_title,
-            'meta_description'     => trim($request->meta_description),
+            'meta_description'     => $request->meta_description,
             'meta_tag'             => json_encode($request->meta_keyword)
         ];
 
@@ -148,7 +148,7 @@ class CircularController extends Controller
                 300, null, function ($constraint) {
                     $constraint->aspectRatio();
                 }
-            )->save(storage_path('app/public/circular/mediam/' . $photoname));
+            )->save(storage_path('app/public/circular/medium/' . $photoname));
             $small = Image::make($request->file('thumbnail'))->resize(
                 150, null, function ($constraint) {
                     $constraint->aspectRatio();
@@ -161,8 +161,8 @@ class CircularController extends Controller
         Circular::where('id', $id)->update([
             'title'                => $request->title,
             'slug'                 => make_slug($request->title),
-            'description'          => trim($request->description),
-            'thumbnail'            => $thumbnailname,
+            'description'          => $request->description,
+            'thumbnail'            => $photoname,
             'category_id'          => $request->category_id,
             'start_date'           => $request->start_date,
             'end_date'             => $request->end_date,
@@ -171,7 +171,7 @@ class CircularController extends Controller
             'apply_link'           => $request->apply_link,
             'vacancy'              => $request->vacancy,
             'meta_title'           => $request->meta_title,
-            'meta_description'     => trim($request->meta_description),
+            'meta_description'     => $request->meta_description,
             'meta_tag'             => json_encode($request->meta_keyword)
         ]);
         return redirect()->route('circular.index');

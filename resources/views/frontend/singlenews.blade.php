@@ -13,7 +13,7 @@
                         <h4> {{ $news->title }}</h4>
                     </div>
                     <div class="card-body">
-                        <img style="width: 100%;" src="{{ asset('storage/news/' . $news->thumbnail) }}"
+                        <img style="width: 100%;" src="{{ asset('storage/news/full/'.$news->thumbnail) }}"
                             alt="thumbnail">
                         <ul class="author-area d-flex">
                             <li><i class="fa-solid fa-user"></i> {{ $news->user->name ?? 'No User' }}</li>

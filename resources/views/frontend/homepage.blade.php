@@ -13,7 +13,7 @@
                 <div class="col-lg-4 d-none d-lg-block bg-light mt-3">
                     <div class="card" style="position: sticky;top:80px">
                         <div class="card-header">
-                            <h6 class="text-uppercase fw-bold text-center mt-2 text-secondary">সর্বশেষ আপডেট : </h6>
+                            <h6 class="text-uppercase fw-bold text-center mt-2 text-secondary">সর্বশেষ আপডেট :</h6>
                         </div>
                         <div class="">
                             <div class="list-group">
@@ -44,8 +44,8 @@
                         @foreach ($circulars as $circular)
                             <div class="col-sm-6 col-md-4 mt-3">
                                 <div class="card">
-                                    <img src="{{ asset('storage/circular/' . $circular->thumbnail) }}"
-                                        class="card-img-top">
+                                    {{-- <img src="{{ asset('storage/circular/' . $circular->thumbnail) }}" class="card-img-top"> --}}
+                                    <img src="{{asset('storage/circular/medium/'.$circular->thumbnail)}}" class="card-img-top" alt="{{$circular->title}}">
                                     <div class="card-body">
                                         <a href="{{ route('singlecircular', $circular->slug) }}"
                                             class="card-text text-decoration-none fw-bold text-secondary">
@@ -78,8 +78,8 @@
                     <div class="col-sm-6 col-md-6 col-lg-4 mt-3">
                         <div class="card">
                             <div class="d-flex flex-row">
-                                <img src="{{ asset('storage/news/' . $news->thumbnail) }}" class="img-fluid"
-                                    style="width: 100px;" alt="">
+                                <img src="{{ asset('storage/news/medium/' . $news->thumbnail) }}" class="img-fluid"
+                                    style="width: 100px;" alt="{{ $news->title }}">
                                 <a href="{{ route('singlenews', $news->slug) }}"
                                     class="p-2 text-decoration-none fw-bold text-secondary">
                                     {{ $news->title }}

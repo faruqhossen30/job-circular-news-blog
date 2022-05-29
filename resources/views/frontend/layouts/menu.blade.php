@@ -35,7 +35,7 @@ $categories = App\Models\Category::get();
                         <input class="form-control" name="keyword" type="search" placeholder="Search" aria-label="Search">
                         <i class="fa fa-search"></i>
                     </form> --}}
-                    <a href="{{ route('search') }}" class="btn btn-secondary btn-sm">Search</a>
+                    <a href="{{ route('search') }}" class="btn btn-secondary btn-sm">SEARCH</a>
                 </div>
             </div>
         </nav>

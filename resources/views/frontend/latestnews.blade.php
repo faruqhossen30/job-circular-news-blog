@@ -61,7 +61,8 @@
                             <div class="col-md-4">
                                 <div class="card p-2">
                                     <div class="single-news">
-                                        <img src="{{ asset('storage/news/' . $news->thumbnail) }}" alt="thumbnail">
+                                        {{-- <img src="{{ asset('storage/news/' . $news->thumbnail) }}" alt="thumbnail"> --}}
+                                        <img src="{{ asset('storage/news/medium/'.$news->thumbnail) }}" alt="{{ $news->title }}">
                                         <a href="{{ route('singlenews', $news->slug) }}">{{ $news->title }}</a>
                                     </div>
                                 </div>
