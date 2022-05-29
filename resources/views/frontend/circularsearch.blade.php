@@ -16,7 +16,7 @@
                                 <form action="#" class="d-flex align-items-center justify-content-center">
                                     <div class="input-group input-group-sm">
                                         <span id="inputGroup-sizing-sm">
-                                            <select name="type" class="form-select" id="search-bar">
+                                            <select name="type" class="form-select" id="search-bar" onchange="this.form.submit()">
                                                 <option value="circular">Circular</option>
                                                 <option value="news">News</option>
                                             </select>
@@ -52,7 +52,7 @@
                     <!-- Sidebar Start -->
                     <!-- Sidebar End -->
                     <div class="col-lg-9 col-12">
-                        @if (count($allnews) > 0)
+                        @if (count($circulars) > 0)
                             <!-- Filter Start -->
                             <div class="row">
                                 <div class="d-flex justify-content-between">
@@ -87,22 +87,22 @@
                                 @endif
                             </div>
                             <div class="row">
-                                @foreach ($allnews as $news)
+                                @foreach ($circulars as $circular)
                                     <div class="col-sm-6 col-md-4 mt-3">
                                         <div class="card">
-                                            <img src="{{ asset('storage/news/' . $news->thumbnail) }}"
+                                            <img src="{{ asset('storage/circular/medium/' . $circular->thumbnail) }}"
                                                 class="card-img-top">
                                             <div class="card-body">
-                                                <a href="{{ route('singlenews', $news->slug) }}"
+                                                <a href="{{ route('singlenews', $circular->slug) }}"
                                                     class="card-text text-decoration-none fw-bold text-secondary">
-                                                    {{ $news->title }}
+                                                    {{ $circular->title }}
                                                 </a>
                                             </div>
                                         </div>
                                     </div>
                                 @endforeach
                                 <div class="row my-3">
-                                    {{ $allnews->links() }}
+                                    {{ $circulars->links() }}
                                 </div>
                             </div>
                         @else

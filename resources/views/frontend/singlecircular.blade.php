@@ -17,7 +17,7 @@
                         <img style="width: 100%;" src="{{asset('storage/circular/medium/'.$circular->thumbnail)}}"
                             alt="thumbnail">
                         <ul class="author-area d-flex">
-                            <li><i class="fa-solid fa-user"></i> Najmul</li>
+                            <li><i class="fa-solid fa-user"></i> Admin</li>
                             <li><i class="fa-solid fa-archway"></i> {{ $singlecircular->category->name ?? 'No Category' }}
                             </li>
                             <li><i class="fa-solid fa-clock"></i>
@@ -101,8 +101,8 @@
                     </div>
                 </aside>
             </div>
-            <img src="{{ asset('frontend') }}/img/horizantal-banner.jpg" style="height: 150px" alt=""
-                class="mt-3">
+            {{-- <img src="{{ asset('frontend') }}/img/horizantal-banner.jpg" style="height: 150px" alt=""
+                class="mt-3"> --}}
         </div>
     </div>
 @endsection

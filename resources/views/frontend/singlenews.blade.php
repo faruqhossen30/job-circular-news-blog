@@ -62,8 +62,8 @@
                     </div>
                 </aside>
             </div>
-            <img src="{{ asset('frontend') }}/img/horizantal-banner.jpg" style="height: 150px" alt=""
-                class="mt-3">
+            {{-- <img src="{{ asset('frontend') }}/img/horizantal-banner.jpg" style="height: 150px" alt=""
+                class="mt-3"> --}}
         </div>
     </div>
 @endsection

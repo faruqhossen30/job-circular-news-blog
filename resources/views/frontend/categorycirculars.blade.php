@@ -68,7 +68,7 @@
                                 <div class="col-md-4">
                                     <div class="card p-2">
                                         <div class="single-news">
-                                            <img src="{{ asset('storage/circular/' . $cirlular->thumbnail) }}" alt="">
+                                            <img src="{{ asset('storage/circular/medium/' . $cirlular->thumbnail) }}" alt="">
                                             <a href="{{ route('singlecircular', $cirlular->slug) }}">{{ $cirlular->title }}</a>
                                         </div>
                                     </div>

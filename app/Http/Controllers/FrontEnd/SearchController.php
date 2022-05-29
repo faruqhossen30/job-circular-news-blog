@@ -52,7 +52,7 @@ class SearchController extends Controller
 
             return view('frontend.search', compact('allnews', 'categories', 'circulars'));
         } else {
-            $allnews = Circular::when($category, function ($query, $category) {
+            $circulars = Circular::when($category, function ($query, $category) {
                 return $query->whereIn('category_id', $category);
             })
                 ->when($keyword, function ($query, $keyword) {
@@ -63,7 +63,7 @@ class SearchController extends Controller
                 })
                 ->paginate($count ?? 10);
 
-            return view('frontend.circularsearch', compact('allnews', 'categories', 'circulars'));
+            return view('frontend.circularsearch', compact('categories', 'circulars'));
         }
     }
 }

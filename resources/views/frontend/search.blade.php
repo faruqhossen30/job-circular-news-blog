@@ -15,7 +15,7 @@
                             <form action="#" class="d-flex align-items-center justify-content-center">
                                 <div class="input-group input-group-sm">
                                     <span id="inputGroup-sizing-sm">
-                                        <select name="type" class="form-select" id="search-bar">
+                                        <select name="type" class="form-select" id="search-bar" onchange="this.form.submit()">
                                             <option @if (isset($_GET['type']) && $_GET['type'] == 'circular') selected @endif value="circular">
                                                 Circular</option>
                                             <option @if (isset($_GET['type']) && $_GET['type'] == 'news') selected @endif value="news">News
@@ -92,7 +92,7 @@
                                 @foreach ($allnews as $news)
                                     <div class="col-sm-6 col-md-4 mt-3">
                                         <div class="card">
-                                            <img src="{{ asset('storage/news/' . $news->thumbnail) }}"
+                                            <img src="{{ asset('storage/news/medium/' . $news->thumbnail) }}"
                                                 class="card-img-top">
                                             <div class="card-body">
                                                 <a href="{{ route('singlenews', $news->slug) }}"
