@@ -1,7 +1,20 @@
 @extends('frontend.layouts.app')
 
-@section('title')
-    News || Job Circular
+@section('SEO')
+    <title>{{ $news->title }}</title>
+    <!-- Facebook & Linkedit Open Graph -->
+    <meta property="og:url" content="{{ route('singlenews', $news->slug) }}" />
+    <meta property="og:type" content="Job news | চাকরি | চাকরির খবর" />
+    <meta property="og:title" content="{{ $news->title }}" />
+    <meta property="og:description" content="{{ $news->meta_description ?? '' }}" />
+    <meta property="og:image" content="{{asset('storage/news/full/'.$news->thumbnail)}}" />
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@jobnewsbd.net"/>
+    <meta property="og:title" content="{{ $news->title }}" />
+    <meta property="og:description" content="{{ $news->meta_description ?? '' }}" />
+    <meta property="og:image" content="{{asset('storage/news/full/'.$news->thumbnail)}}" />
 @endsection
 
 @section('content')

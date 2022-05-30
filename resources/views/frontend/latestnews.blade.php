@@ -1,7 +1,7 @@
 @extends('frontend.layouts.app')
 
-@section('title')
-    Latest News || Job Circular
+@section('SEO')
+    <title>চাকরীর আপডেট খবর।</title>
 @endsection
 
 

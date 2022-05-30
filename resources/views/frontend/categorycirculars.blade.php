@@ -1,7 +1,7 @@
 @extends('frontend.layouts.app')
 
-@section('title')
-    Category Circular || Job Circular
+@section('SEO')
+    <title>{{ $category->name }}</title>
 @endsection
 
 

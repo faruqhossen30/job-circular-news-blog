@@ -1,7 +1,7 @@
 @extends('frontend.layouts.app')
 
-@section('title')
-    Home || Job Circular
+@section('SEO')
+    <title>Home || Job Circular</title>
 @endsection
 
 @section('content')

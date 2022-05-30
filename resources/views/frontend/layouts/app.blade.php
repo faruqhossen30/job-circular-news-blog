@@ -11,7 +11,8 @@
     <link rel="stylesheet" href="{{ asset('frontend') }}/custom.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
 
-    <title>@yield('title')</title>
+    {{-- <title>@yield('title')</title> --}}
+    @yield('SEO')
 </head>
 
 <body class="bg-light">

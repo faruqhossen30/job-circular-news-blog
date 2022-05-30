@@ -3,6 +3,22 @@
 @section('title')
     Job Circular || Job Circular
 @endsection
+@section('SEO')
+    <title>{{ $circular->title }}</title>
+    <!-- Facebook & Linkedit Open Graph -->
+    <meta property="og:url" content="{{ route('singlecircular', $circular->slug) }}" />
+    <meta property="og:type" content="Job Circular | চাকরি | চাকরির খবর" />
+    <meta property="og:title" content="{{ $circular->title }}" />
+    <meta property="og:description" content="{{ $circular->meta_description ?? '' }}" />
+    <meta property="og:image" content="{{asset('storage/circular/full/'.$circular->thumbnail)}}" />
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@jobcircularbd.net"/>
+    <meta property="og:title" content="{{ $circular->title }}" />
+    <meta property="og:description" content="{{ $circular->meta_description ?? '' }}" />
+    <meta property="og:image" content="{{asset('storage/circular/full/'.$circular->thumbnail)}}" />
+@endsection
 
 
 @section('content')
@@ -15,7 +31,7 @@
                     </div>
                     <div class="card-body">
                         <img style="width: 100%;" src="{{asset('storage/circular/medium/'.$circular->thumbnail)}}"
-                            alt="thumbnail">
+                            alt="{{$circular->title}}">
                         <ul class="author-area d-flex">
                             <li><i class="fa-solid fa-user"></i> Admin</li>
                             <li><i class="fa-solid fa-archway"></i> {{ $singlecircular->category->name ?? 'No Category' }}
@@ -56,7 +72,7 @@
                                     <td> : {{ $circular->organization_website }}</td>
                                 </tr>
                                 <tr>
-                                    <td><strong>Aplly link </strong></td>
+                                    <td><strong>Aplly link/Details </strong></td>
                                     <td><a href="{{ $circular->apply_link }}" style="text-decoration: none"> : Click for
                                             Apply</a></td>
                                 </tr>
@@ -66,11 +82,11 @@
                                 </tr>
                                 <tr>
                                     <td><strong>Start Date </strong></td>
-                                    <td> : {{ $circular->start_date->format('d M Y') }}</td>
+                                    <td> : {{ optional($circular->start_date)->format('d M Y') }}</td>
                                 </tr>
                                 <tr>
                                     <td><strong>End Date </strong></td>
-                                    <td> : {{ $circular->end_date->format('d M Y') }}</td>
+                                    <td> : {{ optional($circular->end_date)->format('d M Y') }}</td>
                                 </tr>
                             </tbody>
                         </table>
