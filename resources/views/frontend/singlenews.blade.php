@@ -70,7 +70,7 @@
                     </div>
                     <div class="single-sidebar">
                         <div class="card mb-4">
-                            <img src="{{ asset('frontend') }}/img/small-ads.webp" alt="">
+                            <img src="{{ asset('frontend/img/bannerlogo.jpg') }}" alt="">
                         </div>
                     </div>
                 </aside>

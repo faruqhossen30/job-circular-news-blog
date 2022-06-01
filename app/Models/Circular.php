@@ -9,7 +9,7 @@ class Circular extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['title', 'slug', 'description', 'thumbnail', 'category_id', 'start_date', 'end_date', 'organization_name', 'organization_website', 'apply_link', 'vacancy', 'meta_title', 'meta_description', 'meta_tag'];
+    protected $fillable = ['title', 'slug', 'description', 'thumbnail', 'category_id', 'start_date', 'end_date', 'organization_name', 'organization_website', 'apply_link', 'vacancy', 'meta_title', 'meta_description', 'meta_tag', 'user_id'];
 
     protected $dates = ['start_date', 'end_date'];
 
