@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Circular;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Image;
 
 class CircularController extends Controller
@@ -79,7 +80,8 @@ class CircularController extends Controller
             'vacancy'              => $request->vacancy,
             'meta_title'           => $request->meta_title,
             'meta_description'     => $request->meta_description,
-            'meta_tag'             => json_encode($request->meta_keyword)
+            'meta_tag'             => json_encode($request->meta_keyword),
+            'user_id'              => Auth::user()->id,
         ];
 
         $circular = Circular::create($data);
